@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-(/images/mimon-antenna.png)
+![](/images/mimon-antenna.png)
 
 A data-driven personal website
 ======

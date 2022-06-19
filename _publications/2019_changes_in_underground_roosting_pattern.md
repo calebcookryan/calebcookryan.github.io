@@ -12,4 +12,4 @@ This paper describes hibernation as a dynamic process where bats change the loca
 
 [Download paper here](https://doi.org/10.1139/cjz-2018-0340)
 
-Recommended citation: Caleb C. Ryan, Lynne E. Burns, Hugh G. Broders. (2019). "Changes in underground roosting pattern to optimize energy conservation in hibernating bats" <i>Canadian Journal of Zoology 1</i>. 1(1).
+Recommended citation: **Caleb C. Ryan**, Lynne E. Burns, Hugh G. Broders. (2019). "Changes in underground roosting pattern to optimize energy conservation in hibernating bats" <i>Canadian Journal of Zoology 1</i>. 1(1).

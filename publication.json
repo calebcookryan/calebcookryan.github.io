@@ -1,0 +1,32 @@
+{
+  "years": [
+    {
+      "year": "2025",
+      "pubs": [
+        {
+          "citation": "Ryan, C.C., Doe, J., & Smith, A. (2025). *Title of Your Latest Paper*. *Journal of Bat Studies*, 15(2), 123-135.",
+          "pdf": "papers/ryan2025_latest.pdf",
+          "bibtex": "bibtex/ryan2025_latest.bib",
+          "doi": "10.1234/exampledoi2025"
+        },
+        {
+          "citation": "Ryan, C.C., & Doe, J. (2025). *Another Paper Title*. *Ecology Letters*, 28(4), 456-468.",
+          "pdf": "papers/ryan2025_another.pdf",
+          "bibtex": "bibtex/ryan2025_another.bib",
+          "doi": "10.5678/exampledoi2025b"
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "pubs": [
+        {
+          "citation": "Ryan, C.C., Smith, A., & Doe, J. (2024). *Interesting Findings in Bat Social Networks*. *Animal Behaviour*, 210, 789-802.",
+          "pdf": "papers/ryan2024_social.pdf",
+          "bibtex": "bibtex/ryan2024_social.bib",
+          "doi": "10.9876/exampledoi2024"
+        }
+      ]
+    }
+  ]
+}

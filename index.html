@@ -13,58 +13,82 @@
     }
     * { box-sizing: border-box; }
     body { margin: 0; padding: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--text); }
+    header { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav a { text-decoration: none; color: var(--text); font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
-    header, section { border-bottom: 1px solid var(--border); padding: 24px 0; }
-    h1, h2, h3 { margin: 0 0 12px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+    section { padding: 24px 0; border-bottom: 1px solid var(--border); }
+    h1, h2 { margin: 0 0 12px; }
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
     .photo { border: 1px solid var(--border); height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #666; }
   </style>
 </head>
 <body>
   <header class="wrap">
     <h1>Site Title</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section class="wrap" id="about">
+  <section id="about" class="wrap">
     <h2>About</h2>
+    <div class="photo-grid">
+      <div class="photo">Photo</div>
+    </div>
   </section>
 
-  <section class="wrap" id="research">
+  <section id="research" class="wrap">
     <h2>Research</h2>
-    <div class="grid">
-      <div class="photo">Photo</div>
+    <div class="photo-grid">
       <div class="photo">Photo</div>
       <div class="photo">Photo</div>
     </div>
   </section>
 
-  <section class="wrap" id="publications">
+  <section id="publications" class="wrap">
     <h2>Publications</h2>
-    <div class="grid">
+    <div class="photo-grid">
       <div class="photo">Photo</div>
       <div class="photo">Photo</div>
     </div>
   </section>
 
-  <section class="wrap" id="projects">
+  <section id="projects" class="wrap">
     <h2>Projects</h2>
-    <div class="grid">
-      <div class="photo">Photo</div>
-      <div class="photo">Photo</div>
+    <div class="photo-grid">
       <div class="photo">Photo</div>
     </div>
   </section>
 
-  <section class="wrap" id="teaching">
+  <section id="teaching" class="wrap">
     <h2>Teaching</h2>
+    <div class="photo-grid">
+      <div class="photo">Photo</div>
+    </div>
   </section>
 
-  <section class="wrap" id="cv">
+  <section id="cv" class="wrap">
     <h2>CV</h2>
+    <div class="photo-grid">
+      <div class="photo">Photo</div>
+    </div>
   </section>
 
-  <section class="wrap" id="contact">
+  <section id="contact" class="wrap">
     <h2>Contact</h2>
+    <div class="photo-grid">
+      <div class="photo">Photo</div>
+    </div>
   </section>
 
   <footer class="wrap">

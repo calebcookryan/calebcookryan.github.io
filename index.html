@@ -230,6 +230,13 @@
             const linksDiv = document.createElement('div');
             linksDiv.className = 'links';
 
+            // container for PDF + metrics on the right
+            const rightLinks = document.createElement('div');
+            rightLinks.style.float = 'right';
+            rightLinks.style.display = 'flex';
+            rightLinks.style.alignItems = 'center';
+            rightLinks.style.gap = '10px';
+            
             if (pub.pdf) {
               const a = document.createElement('a');
               a.href = pub.pdf;

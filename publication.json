@@ -21,7 +21,8 @@
           "pdf": "papers/microorganisms-2024.pdf",
           "bibtex": "bibtex/microorganisms-2024.bib",
           "doi": "10.3390/microorganisms8030440",
-          "citations": "auto"
+          "citations": "auto",
+          "plumx": true
         }
       ]
     },

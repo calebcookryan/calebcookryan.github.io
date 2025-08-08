@@ -21,8 +21,7 @@
           "pdf": "papers/microorganisms-2024.pdf",
           "bibtex": "bibtex/microorganisms-2024.bib",
           "doi": "10.3390/microorganisms8030440",
-          "citations": "auto",
-          "plumx": true
+          "citations": "auto"
         }
       ]
     },
@@ -34,7 +33,8 @@
           "pdf": "papers/ryan_2019_changes.pdf",
           "bibtex": "bibtex/ryan_2019_changes.bib",
           "doi": "10.1139/cjz-2018-0340",
-          "citations": "auto"
+          "citations": "auto",
+          "plumx": true
         }
       ]
     }

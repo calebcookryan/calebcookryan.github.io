@@ -234,15 +234,27 @@
               const a = document.createElement('a');
               a.href = pub.pdf;
               a.setAttribute('aria-label', 'PDF');
-              a.innerHTML = '<img class="pdf-icon" src="pdf-icon.png" alt="PDF">';
+              a.innerHTML = '<img class="pdf-icon" src="favicon.png" alt="PDF">';
               linksDiv.appendChild(a);
             }
 
             li.appendChild(cite);
             li.appendChild(linksDiv);
 
-            // metrics: Altmetric -> PlumX fallback
-            if (pub.doi || pub.pmid) {
+            // metrics: special-case title -> PlumX; else Altmetric with PlumX fallback
+            const isRoostingPaper = /changes in underground roosting patterns to optimize energy conservation in hibernating bats/i.test(pub.citation || '');
+            if (isRoostingPaper && (pub.doi || pub.pmid)) {
+              const plumURL = pub.doi
+                ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
+                : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
+              const plumA = document.createElement('a');
+              plumA.className = 'plumx-plum-print-popup';
+              plumA.setAttribute('data-popup','right');
+              plumA.setAttribute('data-hide-when-empty','false');
+              plumA.href = plumURL;
+              plumA.textContent = 'PlumX';
+              li.appendChild(plumA);
+            } else if (pub.doi || pub.pmid) {
               const altDiv = document.createElement('div');
               const idAttr = pub.pmid ? `data-pmid="${pub.pmid}"` : `data-doi="${pub.doi}"`;
               altDiv.innerHTML = `<span class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="false" data-link-target="_blank" ${idAttr}></span>`;
@@ -273,3 +285,4 @@
   <script async src="https://cdn.plu.mx/widget-popup.js"></script>
 </body>
 </html>
+

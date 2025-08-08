@@ -1,24 +1,27 @@
 {
-"years": [
-  {
+  "bibtex_url": "publications.bib",
+  "years": [
+    {
       "year": "2025",
       "pubs": [
         {
-          "citation": "KJ Vanderwolf, DF McAlpine, <strong>CC Ryan<strong>, HG Broders. (2025). *Pseudogymnoascus destructans environmental reservoir decreases 11 years after an outbreak of white‐nose syndrome*.  *Ecosphere*, 16(1), e70149.",
+          "citation": "K.J. Vanderwolf, D.F. McAlpine, <strong>Ryan, C.C.</strong>, & H.G. Broders (2025). <em>Pseudogymnoascus destructans environmental reservoir decreases 11 years after an outbreak of white-nose syndrome</em>. <em>Ecosphere</em>, 16(1), e70149.",
           "pdf": "papers/ecosphere_2025.pdf",
           "bibtex": "bibtex/ecosphere_2025.bib",
-          "doi": "10.1002/ecs2.70149"
+          "doi": "10.1002/ecs2.70149",
+          "citations": "auto"
         }
       ]
     },
-  {
+    {
       "year": "2024",
       "pubs": [
         {
-          "citation": "Banerjee, A., Baid, K., Byron, T., Yip, A., <strong>Ryan, C.C.<strong>, Thampy, P. R., Broders, H., Faure, P., Mossman, K. (2024). *Seroprevalence in Bats and Detection of Borrelia burgdorferi in Bat Ectoparasites*. *Microorganisms*, 8(3), 440.",
+          "citation": "Banerjee, A., Baid, K., Byron, T., Yip, A., <strong>Ryan, C.C.</strong>, Thampy, P.R., Broders, H., Faure, P., & Mossman, K. (2024). <em>Seroprevalence in bats and detection of Borrelia burgdorferi in bat ectoparasites</em>. <em>Microorganisms</em>, 8(3), 440.",
           "pdf": "papers/microorganisms-2024.pdf",
           "bibtex": "bibtex/microorganisms-2024.bib",
-          "doi": "10.3390/microorganisms8030440"
+          "doi": "10.3390/microorganisms8030440",
+          "citations": "auto"
         }
       ]
     },
@@ -26,11 +29,14 @@
       "year": "2019",
       "pubs": [
         {
-          "citation": "<strong>Ryan, C.C.<strong>, Burns, L. E. and Broders, H. G. (2019). *Changes in underground roosting patterns to optimize energy conservation in hibernating bats*. *Canadian Journal of Zoology*, 97(11), 1064-1070.",
+          "citation": "<strong>Ryan, C.C.</strong>, Burns, L.E., & Broders, H.G. (2019). <em>Changes in underground roosting patterns to optimize energy conservation in hibernating bats</em>. <em>Canadian Journal of Zoology</em>, 97(11), 1064-1070.",
           "pdf": "papers/ryan_2019_changes.pdf",
           "bibtex": "bibtex/ryan_2019_changes.bib",
-          "doi": "10.1139/cjz-2018-0340"
+          "doi": "10.1139/cjz-2018-0340",
+          "citations": "auto"
         }
       ]
-    },
-    {
+    }
+  ]
+}
+

@@ -47,7 +47,6 @@
     .pub-item .cite { display:block; text-indent:-1.5em; padding-left:1.5em; line-height:1.4; }
     .pub-item .links { display:flex; align-items:center; gap:14px; margin-top:4px; }
     .pdf-icon { width:16px; height:16px; vertical-align:text-bottom; }
-    .cites { font-size:.95em; color:#333; }
 
     /* Contact */
     .contact { display:grid; grid-template-columns: 1fr; gap:12px; }
@@ -119,10 +118,11 @@
     </div>
   </section>
 
+  <!-- Publications section -->
   <section id="publications" class="wrap">
     <h2>publications</h2>
     <div id="pubs_actions" class="actions"></div>
-    <div class="pubs" id="pubs"></div>
+    <div class="pubs" id="pubs">loading publications…</div>
   </section>
 
   <section id="projects" class="wrap">
@@ -186,14 +186,14 @@
       });
     });
 
-    // Publications loader with BibTeX, PDF icon, auto citations, and name normalization
+    // Publications loader (Altmetric donut only, plus optional BibTeX button)
     function normalizeMyName(html){
       return html.replace(/caleb\s+cook\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
     }
 
     fetch('publication.json')
       .then(res => res.json())
-      .then(async (data) => {
+      .then(async data => {
         const actions = document.getElementById('pubs_actions');
         if (data.bibtex_url) {
           const a = document.createElement('a');
@@ -205,6 +205,8 @@
         }
 
         const pubsContainer = document.getElementById('pubs');
+        pubsContainer.innerHTML = '';
+
         for (const yearBlock of data.years) {
           const yearDiv = document.createElement('div');
           yearDiv.className = 'year';
@@ -238,6 +240,11 @@
               doiLink.href = `https://doi.org/${pub.doi}`;
               doiLink.textContent = 'doi';
               linksDiv.appendChild(doiLink);
+
+              // Altmetric donut (attention score only)
+              const altDiv = document.createElement('div');
+              altDiv.innerHTML = `<span class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="true" data-link-target="_blank" data-doi="${pub.doi}"></span>`;
+              linksDiv.appendChild(altDiv);
             }
 
             if (pub.bibtex) {
@@ -247,35 +254,19 @@
               linksDiv.appendChild(bibLink);
             }
 
-            const citesSpan = document.createElement('span');
-            citesSpan.className = 'cites';
-            const countSpan = document.createElement('span');
-            countSpan.className = 'count';
-            citesSpan.textContent = 'citations: ';
-            citesSpan.appendChild(countSpan);
-            linksDiv.appendChild(citesSpan);
-
             li.appendChild(cite);
             li.appendChild(linksDiv);
             ol.appendChild(li);
-
-            let count = pub.citations;
-            if ((count === undefined || count === null || String(count).toLowerCase() === 'auto') && pub.doi) {
-              try {
-                const url = `https://api.semanticscholar.org/graph/v1/paper/DOI:${encodeURIComponent(pub.doi)}?fields=citationCount`;
-                const res = await fetch(url);
-                if (res.ok) {
-                  const json = await res.json();
-                  count = (json && typeof json.citationCount === 'number') ? json.citationCount : '—';
-                } else {
-                  count = '—';
-                }
-              } catch(e) { count = '—'; }
-            }
-            countSpan.textContent = (count !== undefined && count !== null) ? count : '—';
           }
+
           pubsContainer.appendChild(ol);
         }
+
+        // Load Altmetric embed script once
+        const altScript = document.createElement('script');
+        altScript.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
+        altScript.async = true;
+        document.body.appendChild(altScript);
       });
   </script>
 </body>

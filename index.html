@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>caleb cook ryan</title>
+
   <!-- Favicon (tab icon) -->
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -45,9 +46,9 @@
     /* publications */
     .pubs .year { border-top:1px solid var(--border); padding-top:8px; margin-top:20px; font-weight:700; }
     .pub-list { list-style:none; padding:0; margin:8px 0 0; }
-    .pub-item { margin:12px 0; display: flex; justify-content: space-between; align-items: center; }
+    .pub-item { margin:12px 0; }
     .pub-item .cite { display:block; text-indent:-1.5em; padding-left:1.5em; line-height:1.4; }
-    .pub-item .right-links { display: flex; gap: 10px; align-items: center; }
+    .pub-item .links { display:flex; align-items:center; gap:14px; margin-top:4px; }
     .pdf-icon { width:20px; height:auto; vertical-align:middle; }
 
     /* contact */
@@ -84,7 +85,7 @@
       <h2>about</h2>
       <div class="about-container">
         <div class="about-photo">
-          <img src="images/about_photo.jpeg" alt="Handling a bat in the field">
+          <img src="images/IMG_6681.jpeg" alt="Handling a bat in the field">
         </div>
         <div class="about-text">
           <h3>about me</h3>
@@ -92,6 +93,7 @@
           <p>Aliquam erat volutpat. Curabitur porttitor quam ut tortor commodo fermentum. In nec orci metus.</p>
         </div>
       </div>
+
       <!-- compact contact block at bottom of about -->
       <div class="contact-divider"></div>
       <div class="contact">
@@ -191,9 +193,9 @@
     window.addEventListener('hashchange', navigate);
     document.addEventListener('DOMContentLoaded', navigate);
 
-    // publications: PDF + metrics on the right using Flex
+    // publications: Altmetric donut first, PlumX fallback. Only PDF icon link is shown.
     function normalizeMyName(html){
-      return html.replace(/caleb\\s+cook\\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
+      return html.replace(/caleb\s+cook\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
     }
 
     fetch('publication.json')
@@ -212,43 +214,58 @@
           ol.className = 'pub-list';
 
           for (const pub of yearBlock.pubs) {
-            // Flex row for each publication
             const li = document.createElement('li');
             li.className = 'pub-item';
-            li.style.display = 'flex';
-            li.style.justifyContent = 'space-between';
-            li.style.alignItems = 'center';
 
-            // Left: citation
             const cite = document.createElement('span');
             cite.className = 'cite';
             cite.innerHTML = normalizeMyName(pub.citation || '');
 
-            // Right: PDF + metric
-            const rightLinks = document.createElement('div');
-            rightLinks.className = 'right-links';
-            rightLinks.style.display = 'flex';
-            rightLinks.style.alignItems = 'center';
-            rightLinks.style.gap = '10px';
+            const linksDiv = document.createElement('div');
+            linksDiv.className = 'links';
 
             if (pub.pdf) {
-              const pdfA = document.createElement('a');
-              pdfA.href = pub.pdf;
-              pdfA.setAttribute('aria-label', 'PDF');
-              pdfA.innerHTML = '<strong>PDF</strong>';
-              rightLinks.appendChild(pdfA);
-            }
-
-            // Altmetric or PlumX
-            if (pub.doi || pub.pmid) {
-              const altDiv = document.createElement('div');
-              const idAttr = pub.pmid ? `data-pmid=\"${pub.pmid}\"` : `data-doi=\"${pub.doi}\"`;
-              altDiv.innerHTML = `<span class=\"altmetric-embed\" data-badge-type=\"donut\" data-hide-no-mentions=\"false\" data-link-target=\"_blank\" ${idAttr}></span>`;
-              rightLinks.appendChild(altDiv);
+              const a = document.createElement('a');
+              a.href = pub.pdf;
+              a.setAttribute('aria-label', 'PDF');
+              a.innerHTML = '<img class="pdf-icon" src="favicon.png" alt="PDF">';
+              linksDiv.appendChild(a);
             }
 
             li.appendChild(cite);
-            li.appendChild(rightLinks);
+            li.appendChild(linksDiv);
+
+            // metrics: special-case title -> PlumX; else Altmetric with PlumX fallback
+            const isRoostingPaper = /changes in underground roosting patterns to optimize energy conservation in hibernating bats/i.test(pub.citation || '');
+            if (isRoostingPaper && (pub.doi || pub.pmid)) {
+              const plumURL = pub.doi
+                ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
+                : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
+              const plumA = document.createElement('a');
+              plumA.className = 'plumx-plum-print-popup';
+              plumA.setAttribute('data-popup','right');
+              plumA.setAttribute('data-hide-when-empty','false');
+              plumA.href = plumURL;
+              plumA.textContent = 'PlumX';
+              li.appendChild(plumA);
+            } else if (pub.doi || pub.pmid) {
+              const altDiv = document.createElement('div');
+              const idAttr = pub.pmid ? `data-pmid="${pub.pmid}"` : `data-doi="${pub.doi}"`;
+              altDiv.innerHTML = `<span class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="false" data-link-target="_blank" ${idAttr}></span>`;
+              li.appendChild(altDiv);
+
+              // fallback to PlumX if Altmetric doesn't render
+              setTimeout(() => {
+                const rendered = altDiv.querySelector('.altmetric-embed__badge, .altmetric-embed iframe, .altmetric-embed img');
+                if (!rendered) {
+                  const plumURL = pub.doi
+                    ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
+                    : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
+                  altDiv.innerHTML = `<a href="${plumURL}" class="plumx-plum-print-popup" data-popup="right" data-hide-when-empty="false">PlumX</a>`;
+                }
+              }, 2500);
+            }
+
             ol.appendChild(li);
           }
 

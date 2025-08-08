@@ -191,7 +191,7 @@
       return html.replace(/caleb\s+cook\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
     }
 
-    fetch('publications.json')
+    fetch('publication.json')
       .then(res => res.json())
       .then(async (data) => {
         const actions = document.getElementById('pubs_actions');

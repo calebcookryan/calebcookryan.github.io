@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>caleb cook ryan</title>
   <!-- Favicons for compatibility and sharpness -->
-  <link rel="icon" href="favicon.ico" sizes="any"> <!-- fallback for old browsers -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"> <!-- sharp, scalable -->
-  <link rel="apple-touch-icon" href="apple-touch-icon.png"> <!-- iOS home screen icon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -31,8 +31,9 @@
     section.active { display: block; }
     h1 { margin: 0; font-weight: 700; text-transform: none; }
     h2 { margin: 0 0 12px; font-weight: 700; text-transform: lowercase; }
+    h3 { margin-top: 0; }
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
-    .photo { border: 1px solid var(--border); height: 200px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #666; }
+    .photo { border: 1px solid var(--border); padding: 16px; background: #f9f9f9; font-size: 14px; color: #333; }
   </style>
 </head>
 <body>
@@ -56,53 +57,76 @@
 
   <section id="about" class="wrap active">
     <h2>about</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <h3>background</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel ligula id risus fermentum accumsan.</p>
+    </div>
+    <div class="photo">
+      <h3>interests</h3>
+      <p>Curabitur viverra, massa at egestas feugiat, risus turpis luctus lacus, vel cursus sapien lacus nec dui.</p>
     </div>
   </section>
 
   <section id="research" class="wrap">
     <h2>research</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <h3>fear-response variation</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis dui sed arcu tempus viverra.</p>
+    </div>
+    <div class="photo">
+      <h3>bayesian social networks</h3>
+      <p>Proin suscipit, lorem non lacinia gravida, orci lorem dignissim arcu, vel congue nulla est id nunc.</p>
     </div>
   </section>
 
   <section id="publications" class="wrap">
     <h2>publications</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <h3>selected works</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse viverra metus vel orci sollicitudin.</p>
     </div>
   </section>
 
   <section id="projects" class="wrap">
     <h2>projects</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <h3>project alpha</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <div class="photo">
+      <h3>project beta</h3>
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
     </div>
   </section>
 
   <section id="blog" class="wrap">
     <h2>blog</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <h3>latest post</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt lorem nec eros ullamcorper.</p>
+    </div>
+    <div class="photo">
+      <h3>previous post</h3>
+      <p>Curabitur non diam nec justo tempor varius vel non libero.</p>
     </div>
   </section>
 
   <section id="cv" class="wrap">
     <h2>cv</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <p><a href="caleb_cv_current.pdf" target="_blank">Download current CV (PDF)</a></p>
     </div>
   </section>
 
   <section id="contact" class="wrap">
     <h2>contact</h2>
-    <div class="photo-grid">
-      <div class="photo">Photo</div>
+    <div class="photo">
+      <h3>email</h3>
+      <p>email@example.com</p>
+    </div>
+    <div class="photo">
+      <h3>social</h3>
+      <p>GitHub, Twitter, LinkedIn</p>
     </div>
   </section>
 
@@ -126,6 +150,7 @@
   </script>
 </body>
 </html>
+
 
 
 

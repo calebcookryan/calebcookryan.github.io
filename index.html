@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>caleb cook ryan</title>
-
   <!-- Favicon (tab icon) -->
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -29,7 +28,7 @@
 
     main section { display:none; padding:24px 0; border-bottom:1px solid var(--border); }
     main section.active { display:block; }
-    h1 { margin:0; font-weight:700; }       /* Title stays in proper case */
+    h1 { margin:0; font-weight:700; }
     h2, h3 { margin:0 0 12px; font-weight:700; text-transform:lowercase; }
 
     .photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
@@ -37,7 +36,8 @@
     .box { border:1px solid var(--border); padding:16px; margin:12px 0; }
 
     .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
-    .about-photo { flex:1 1 300px; border:1px solid var(--border); height:300px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; }
+    .about-photo { flex:1 1 300px; border:1px solid var(--border); height:300px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; padding:0; }
+    .about-photo img { width:100%; height:100%; object-fit:cover; }
     .about-text { flex:2 1 400px; }
 
     .cv-viewer { width:100%; height:800px; border:1px solid var(--border); }
@@ -45,9 +45,9 @@
     /* publications */
     .pubs .year { border-top:1px solid var(--border); padding-top:8px; margin-top:20px; font-weight:700; }
     .pub-list { list-style:none; padding:0; margin:8px 0 0; }
-    .pub-item { margin:12px 0; }
+    .pub-item { margin:12px 0; display: flex; justify-content: space-between; align-items: center; }
     .pub-item .cite { display:block; text-indent:-1.5em; padding-left:1.5em; line-height:1.4; }
-    .pub-item .links { display:flex; align-items:center; gap:14px; margin-top:4px; }
+    .pub-item .right-links { display: flex; gap: 10px; align-items: center; }
     .pdf-icon { width:20px; height:auto; vertical-align:middle; }
 
     /* contact */
@@ -83,31 +83,26 @@
     <section id="about" class="active">
       <h2>about</h2>
       <div class="about-container">
-        <div class="about-photo">your photo here</div>
+        <div class="about-photo">
+          <img src="images/IMG_6681.jpeg" alt="Handling a bat in the field">
+        </div>
         <div class="about-text">
           <h3>about me</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer feugiat, nulla id dictum porttitor, enim justo dignissim nisl.</p>
           <p>Aliquam erat volutpat. Curabitur porttitor quam ut tortor commodo fermentum. In nec orci metus.</p>
         </div>
       </div>
-
       <!-- compact contact block at bottom of about -->
       <div class="contact-divider"></div>
       <div class="contact">
         <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
         <div class="contact-row">
-          <!-- GitHub icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58l-.02-2.04c-3.34.73-4.04-1.6-4.04-1.6-.55-1.41-1.35-1.8-1.35-1.8-1.1-.75.08-.73.08-.73 1.22.08 1.86 1.26 1.86 1.26 1.08 1.85 2.82 1.32 3.5 1.01.11-.79.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.64.25 2.86.12 3.16.78.84 1.25 1.91 1.25 3.22 0 4.62-2.8 5.64-5.48 5.94.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.21.69.82.58A12 12 0 0 0 12 .5Z"/></svg>
           <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
         </div>
         <div class="contact-row">
-          <!-- Twitter icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.27 4.27 0 0 0 1.87-2.36 8.47 8.47 0 0 1-2.7 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.9a4.22 4.22 0 0 0 1.31 5.64 4.2 4.2 0 0 1-1.92-.53v.06a4.23 4.23 0 0 0 3.39 4.14c-.47.13-.97.2-1.48.08a4.24 4.24 0 0 0 3.95 2.93A8.48 8.48 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.36-.01-.54A8.37 8.37 0 0 0 22.46 6Z"/></svg>
           <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
         </div>
         <div class="contact-row">
-          <!-- Instagram icon -->
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5ZM18 6.25a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 18 6.25Z"/></svg>
           <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
         </div>
       </div>
@@ -163,15 +158,12 @@
       <div class="contact">
         <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
         <div class="contact-row">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58l-.02-2.04c-3.34.73-4.04-1.6-4.04-1.6-.55-1.41-1.35-1.8-1.35-1.8-1.1-.75.08-.73.08-.73 1.22.08 1.86 1.26 1.86 1.26 1.08 1.85 2.82 1.32 3.5 1.01.11-.79.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.64.25 2.86.12 3.16.78.84 1.25 1.91 1.25 3.22 0 4.62-2.8 5.64-5.48 5.94.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.21.69.82.58A12 12 0 0 0 12 .5Z"/></svg>
           <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
         </div>
         <div class="contact-row">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.27 4.27 0 0 0 1.87-2.36 8.47 8.47 0 0 1-2.7 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.9a4.22 4.22 0 0 0 1.31 5.64 4.2 4.2 0 0 1-1.92-.53v.06a4.23 4.23 0 0 0 3.39 4.14c-.47.13-.97.2-1.48.08a4.24 4.24 0 0 0 3.95 2.93A8.48 8.48 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.36-.01-.54A8.37 8.37 0 0 0 22.46 6Z"/></svg>
           <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
         </div>
         <div class="contact-row">
-          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5ZM18 6.25a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 18 6.25Z"/></svg>
           <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
         </div>
       </div>
@@ -199,9 +191,9 @@
     window.addEventListener('hashchange', navigate);
     document.addEventListener('DOMContentLoaded', navigate);
 
-    // publications: Altmetric donut first, PlumX fallback. Only PDF icon link is shown.
+    // publications: PDF + metrics on the right using Flex
     function normalizeMyName(html){
-      return html.replace(/caleb\s+cook\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
+      return html.replace(/caleb\\s+cook\\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
     }
 
     fetch('publication.json')
@@ -220,65 +212,43 @@
           ol.className = 'pub-list';
 
           for (const pub of yearBlock.pubs) {
+            // Flex row for each publication
             const li = document.createElement('li');
             li.className = 'pub-item';
+            li.style.display = 'flex';
+            li.style.justifyContent = 'space-between';
+            li.style.alignItems = 'center';
 
+            // Left: citation
             const cite = document.createElement('span');
             cite.className = 'cite';
             cite.innerHTML = normalizeMyName(pub.citation || '');
 
-            const linksDiv = document.createElement('div');
-            linksDiv.className = 'links';
-
-            // container for PDF + metrics on the right
+            // Right: PDF + metric
             const rightLinks = document.createElement('div');
-            rightLinks.style.float = 'right';
+            rightLinks.className = 'right-links';
             rightLinks.style.display = 'flex';
             rightLinks.style.alignItems = 'center';
             rightLinks.style.gap = '10px';
-            
+
             if (pub.pdf) {
-              const a = document.createElement('a');
-              a.href = pub.pdf;
-              a.setAttribute('aria-label', 'PDF');
-              a.innerHTML = '<strong>PDF</strong>';
-              linksDiv.appendChild(a);
+              const pdfA = document.createElement('a');
+              pdfA.href = pub.pdf;
+              pdfA.setAttribute('aria-label', 'PDF');
+              pdfA.innerHTML = '<strong>PDF</strong>';
+              rightLinks.appendChild(pdfA);
+            }
+
+            // Altmetric or PlumX
+            if (pub.doi || pub.pmid) {
+              const altDiv = document.createElement('div');
+              const idAttr = pub.pmid ? `data-pmid=\"${pub.pmid}\"` : `data-doi=\"${pub.doi}\"`;
+              altDiv.innerHTML = `<span class=\"altmetric-embed\" data-badge-type=\"donut\" data-hide-no-mentions=\"false\" data-link-target=\"_blank\" ${idAttr}></span>`;
+              rightLinks.appendChild(altDiv);
             }
 
             li.appendChild(cite);
-            li.appendChild(linksDiv);
-
-            // metrics: special-case title -> PlumX; else Altmetric with PlumX fallback
-            const isRoostingPaper = /changes in underground roosting patterns to optimize energy conservation in hibernating bats/i.test(pub.citation || '');
-            if (isRoostingPaper && (pub.doi || pub.pmid)) {
-              const plumURL = pub.doi
-                ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
-                : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
-              const plumA = document.createElement('a');
-              plumA.className = 'plumx-plum-print-popup';
-              plumA.setAttribute('data-popup','right');
-              plumA.setAttribute('data-hide-when-empty','false');
-              plumA.href = plumURL;
-              plumA.textContent = 'PlumX';
-              li.appendChild(plumA);
-            } else if (pub.doi || pub.pmid) {
-              const altDiv = document.createElement('div');
-              const idAttr = pub.pmid ? `data-pmid="${pub.pmid}"` : `data-doi="${pub.doi}"`;
-              altDiv.innerHTML = `<span class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="false" data-link-target="_blank" ${idAttr}></span>`;
-              li.appendChild(altDiv);
-
-              // fallback to PlumX if Altmetric doesn't render
-              setTimeout(() => {
-                const rendered = altDiv.querySelector('.altmetric-embed a, .altmetric-embed iframe, .altmetric-embed img, .altmetric-embed .altmetric-embed__badge');
-                if (!rendered) {
-                  const plumURL = pub.doi
-                    ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
-                    : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
-                  altDiv.innerHTML = `<a href="${plumURL}" class="plumx-plum-print-popup" data-popup="right" data-hide-when-empty="false">PlumX</a>`;
-                }
-              }, 2500);
-            }
-
+            li.appendChild(rightLinks);
             ol.appendChild(li);
           }
 

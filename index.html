@@ -14,6 +14,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Leaflet (map) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
   <style>
     :root { --bg:#fff; --text:#000; --border:#000; --maxw:1080px; }
     * { box-sizing:border-box; }
@@ -42,7 +50,6 @@
       max-width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto 12px; /* space between stacked photos */
     }
     /* force stacked layout for multiple about photos */
     .about-container .about-photo {
@@ -52,11 +59,7 @@
       justify-content: flex-start;
       gap: 12px;                 /* space between photos */
     }
-    
-    .about-container .about-photo img {
-      margin: 0; /* remove extra margin, gap handles spacing */
-    }
-
+    .about-container .about-photo img { margin: 0; }
 
     .about-text { flex:2 1 400px; }
 
@@ -105,36 +108,37 @@
       <div class="about-container">
         <div class="about-photo">
           <img src="images/about_photo.jpeg" alt="Handling a bat in the field">
-          <img src="images/about_photo2.jpeg" alt="headshot">
+          <img src="images/about_photo2.jpeg" alt="Headshot">
         </div>
         <div class="about-text">
           <h3>about me</h3>
           <p>
-    My name is <strong>Caleb (he/him/il/ils)</strong>, I am currently a <strong>PhD Candidate</strong> in the Department of Biology at the <strong>University of Waterloo</strong> in Canada and a <strong>Pre-Doctoral Fellow</strong> at the <strong>Smithsonian Tropical Research Institute </strong> in Panama. 
-    </p>
+            My name is <strong>Caleb (he/him/il/ils)</strong>, I am currently a <strong>PhD Candidate</strong> in the Department of Biology at the
+            <strong>University of Waterloo</strong> in Canada and a <strong>Pre-Doctoral Fellow</strong> at the <strong>Smithsonian Tropical Research Institute</strong> in Panama.
+          </p>
 
-  <p>
-    My research broadly focuses on the social behaviour of bats. My work is strongly interdisciplinary, linking approaches from psychology, sociology, 
-    and engineering to better understand bat lives. Currently, my research takes two main forms. First, I investigate how individuality and consistent behavioural differences influence the formation, 
-    maintenance, and function of social relationships in bats. These studies aim to reveal how variation among individuals shapes cooperation, 
-    association patterns, and information exchange within social groups. 
-  </p>
+          <p>
+            My research broadly focuses on the social behaviour of bats. My work is strongly interdisciplinary, linking approaches from psychology, sociology,
+            and engineering to better understand bat lives. Currently, my research takes two main forms. First, I investigate how individuality and consistent
+            behavioural differences influence the formation, maintenance, and function of social relationships in bats. These studies aim to reveal how variation
+            among individuals shapes cooperation, association patterns, and information exchange within social groups.
+          </p>
 
-  <p>
-    The second part of my research focuses on using big data approaches to expand our understanding of species’ natural histories. 
-    I am broadly interested in method development and the integration of technology into wildlife research. 
-    Recent advances in battery technology have greatly expanded the range of hardware solutions for studying even the smallest animals. With the 
-    simultaneous increase in available computing power, researchers can generate and analyze massive datasets about what animals are up to, where they 
-    are going, and who they are there with, offering unprecedented insights into the details of animal lives.
-  </p>
-  <p>
-    My work has been supported by research grants from the American Museum of Natural History, as well as funding from the Natural Sciences and Engineering 
-    Research Council of Canada (NSERC) and the University of Waterloo.
-  </p>
+          <p>
+            The second part of my research focuses on using big data approaches to expand our understanding of species’ natural histories.
+            I am broadly interested in method development and the integration of technology into wildlife research.
+            Recent advances in battery technology have greatly expanded the range of hardware solutions for studying even the smallest animals. With the
+            simultaneous increase in available computing power, researchers can generate and analyze massive datasets about what animals are up to, where they
+            are going, and who they are there with, offering unprecedented insights into the details of animal lives.
+          </p>
+          <p>
+            My work has been supported by research grants from the American Museum of Natural History, as well as funding from the Natural Sciences and Engineering
+            Research Council of Canada (NSERC) and the University of Waterloo.
+          </p>
 
-  <p>
-    Outside of research, I try to spend as much time as possible outdoors—mountain biking, running, birding, or sleeping in my hammock.
-  </p>
+          <p>
+            Outside of research, I try to spend as much time as possible outdoors—mountain biking, running, birding, or sleeping in my hammock.
+          </p>
         </div>
       </div>
       <!-- compact contact block at bottom of about -->
@@ -156,10 +160,21 @@
     <!-- research -->
     <section id="research">
       <h2>research</h2>
-      <div class="box"><h3>coming soon</h3><p></p></div>
-      <div class="photo-grid">
-        <div class="photo"></div>
-        <div class="photo"></div>
+
+      <div class="box">
+        <h3>Next-generation Natural History</h3>
+        <ul>
+          <li>Using technology to study animal behaviour</li>
+          <li>RFID for Individual ID</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Individuality and Individual Differences</h3>
+        <ul>
+          <li>Personality</li>
+          <li>In-hand aggressiveness</li>
+        </ul>
       </div>
     </section>
 
@@ -172,11 +187,37 @@
     <!-- projects -->
     <section id="projects">
       <h2>projects</h2>
-      <div class="box"><h3>coming soon</h3><p></p></div>
-      <div class="photo-grid">
-        <div class="photo">code screenshot</div>
-        <div class="photo">experiment setup</div>
+
+      <div class="box">
+        <h3>on-going collaborations</h3>
+        <ul>
+          <li>
+            <strong>Belize Long-term (2022–now)</strong> — Large collaboration with scientists from over 40 institutions and 10 countries.
+            Research supported by AMNH. Project featured by NPR.
+          </li>
+          <li>
+            <strong>Social Structure and Behavioural Dynamics of Fringe-lipped Bats in Panama (2025)</strong> — Smithsonian Tropical Research Institute.
+            Research supported by STRI fellowship and AMNH.
+          </li>
+        </ul>
       </div>
+
+      <div class="box">
+        <h3>past projects</h3>
+        <ul>
+          <li>
+            <strong>Long-term RFID Monitoring of Little Brown Bats in Ontario, Canada (2018–2024)</strong> — Part of my PhD research.
+            Established long-term monitoring program around maternity roosts in and around Pinery Provincial Park, in collaboration with Ontario Parks.
+          </li>
+          <li>
+            <strong>Population Status of Hibernating Bats in Eastern Canada (2022–2023)</strong> — Capture surveys during summer and swarming.
+            In collaboration with University of Waterloo and Environment and Climate Change Canada.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Map -->
+      <div id="mapbox" style="height:420px; border:1px solid var(--border); margin-top:20px;"></div>
     </section>
 
     <!-- blog -->
@@ -228,10 +269,39 @@
     function showSection(id) {
       allSections.forEach(sec => sec.classList.toggle('active', sec.id === id));
     }
+
+    // ---- Projects map (lazy init) ----
+    let mapInitialized = false;
+    function initProjectsMap(){
+      if (mapInitialized || typeof L === 'undefined') return;
+
+      // Project sites (approximate coordinates)
+      const sites = [
+        { name: "Belize Long-term", coords: [17.25, -88.77], note: "Collab: >40 institutions; AMNH; NPR" },
+        { name: "Panama – Fringe-lipped bats (2025)", coords: [9.119, -79.704], note: "STRI; AMNH" }, // Gamboa
+        { name: "Ontario – Pinery Provincial Park", coords: [43.27, -81.83], note: "Long-term RFID (2018–2024)" },
+        { name: "Eastern Canada – Hibernating bats", coords: [46.5, -66.5], note: "Population status (2022–2023)" }
+      ];
+
+      const map = L.map('mapbox', { scrollWheelZoom: false });
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO'
+      }).addTo(map);
+
+      const markers = sites.map(s => {
+        return L.marker(s.coords).bindPopup(`<strong>${s.name}</strong><br>${s.note || ''}`);
+      });
+      const group = L.featureGroup(markers).addTo(map);
+      map.fitBounds(group.getBounds().pad(0.2));
+
+      mapInitialized = true;
+    }
+
     function navigate() {
       const id = (location.hash || '#about').slice(1);
       if (!document.getElementById(id)) return (location.hash = '#about');
       showSection(id);
+      if (id === 'projects') initProjectsMap();
     }
     window.addEventListener('hashchange', navigate);
     document.addEventListener('DOMContentLoaded', navigate);
@@ -305,9 +375,17 @@
       });
   </script>
 
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
   <!-- Altmetric + PlumX scripts (render badges/popups) -->
   <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
   <script async src="https://cdn.plu.mx/widget-popup.js"></script>
 </body>
 </html>
+
 

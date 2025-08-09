@@ -64,7 +64,27 @@
     }
 
     .box { border:1px solid var(--border); padding:16px; margin:12px 0; }
-    .proj-sub, .research-sub { border-top:1px solid var(--border); padding-top:12px; margin-top:12px; }
+    .proj-sub {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    
+    .proj-sub h4 {
+      font-size: 1.5rem; /* Adjustable heading size */
+      margin-bottom: 10px; /* Space between the heading and content */
+    }
+    
+    .proj-sub p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 10px; /* Space between paragraphs */
+    }
+    
+    .proj-sub .photo-grid {
+      margin-top: 20px; /* Space between text and image grid */
+    }
     .proj-sub h4, .research-sub h4 { margin:0 0 6px; text-transform:none; }
 
     .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }

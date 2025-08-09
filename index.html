@@ -37,13 +37,26 @@
     .box { border:1px solid var(--border); padding:16px; margin:12px 0; }
 
     .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
-    .about-photo { block:1 1 300px; border:1px solid var(--border); background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; padding:0; }
+    .about-photo { flex:1 1 300px; border:1px solid var(--border); background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; padding:0; }
     .about-photo img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto 12px; /* space between stacked photos */
     }
+    /* force stacked layout for multiple about photos */
+    .about-container .about-photo {
+      display: flex;
+      flex-direction: column;   /* stack vertically */
+      align-items: center;       /* center horizontally */
+      justify-content: flex-start;
+      gap: 12px;                 /* space between photos */
+    }
+    
+    .about-container .about-photo img {
+      margin: 0; /* remove extra margin, gap handles spacing */
+    }
+
 
     .about-text { flex:2 1 400px; }
 

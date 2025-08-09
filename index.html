@@ -47,9 +47,8 @@
     .proj-sub h4, .research-sub h4 { margin:0 0 6px; text-transform:none; }
 
     .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
-    .about-photo { flex:1 1 300px; border:1px solid var(--border); background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; padding:0; }
+    .about-photo { flex:1 1 300px; border:1px solid var(--border); background:#f0f0f0; display:flex; flex-direction:column; align-items:center; gap:12px; color:#666; padding:0; }
     .about-photo img { max-width: 100%; height: auto; display: block; }
-    .about-container .about-photo { flex-direction: column; align-items: center; gap: 12px; }
     .about-text { flex:2 1 400px; }
 
     .cv-viewer { width:100%; height:800px; border:1px solid var(--border); }
@@ -68,6 +67,9 @@
     .contact .handle { font-weight:700; }
     .contact-divider { border-top:1px solid var(--border); margin:16px 0; }
     .muted { color:#333; }
+
+    /* map */
+    #project-map { height: 400px; margin-bottom: 20px; border:1px solid var(--border); }
   </style>
 </head>
 <body>
@@ -99,39 +101,40 @@
       </div>
       <div class="about-text">
         <h3>about me</h3>
-        <p>My name is <strong>Caleb (he/him/il/ils)</strong> ...</p>
-        <!-- ... rest of about text ... -->
+        <p>My name is Caleb (he/him/il/ils), and I am currently a PhD Candidate in the Department of Biology at the University of Waterloo in Canada and a Pre-Doctoral Fellow at the Smithsonian Tropical Research Institute in Panama.</p>
+        <p>My research broadly focuses on the social behaviour of bats. My work is strongly interdisciplinary, linking approaches from psychology, sociology, and engineering to better understand bat lives.</p>
+        <p>Currently, my research takes two main forms. First, I investigate how individuality and consistent behavioural differences influence the formation, maintenance, and function of social relationships in bats. These studies aim to reveal how variation among individuals shapes cooperation, association patterns, and information exchange within social groups.</p>
+        <p>The second part of my research focuses on using big data approaches to expand our understanding of species’ natural histories. I am broadly interested in method development and the integration of technology into wildlife research. Recent advances in battery technology have greatly expanded the range of hardware solutions for studying even the smallest animals. With the simultaneous increase in available computing power, researchers can generate and analyze massive datasets about what animals are up to, where they are going, and who they are there with, offering unprecedented insights into the details of animal lives.</p>
+        <p>My work has been supported by research grants from the American Museum of Natural History, as well as funding from the Natural Sciences and Engineering Research Council of Canada (NSERC) and the University of Waterloo.</p>
+        <p>Outside of research, I try to spend as much time as possible outdoors—mountain biking, running, birding, or sleeping in my hammock.</p>
       </div>
+    </div>
+    <div class="contact-divider"></div>
+    <div class="contact">
+      <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
+      <div class="contact-row"><a href="https://github.com/calebcookryan" target="_blank">github.com/<span class="handle">calebcookryan</span></a></div>
+      <div class="contact-row"><a href="https://twitter.com/CalebCRyan" target="_blank">twitter.com/<span class="handle">CalebCRyan</span></a></div>
+      <div class="contact-row"><a href="https://instagram.com/calebcookryan" target="_blank">instagram.com/<span class="handle">calebcookryan</span></a></div>
     </div>
   </section>
 
   <!-- Research -->
   <section id="research">
     <h2>research</h2>
-    <div class="box">
-      <div class="research-sub" id="res-nextgen">
-        <h4>Next-generation Natural History</h4>
-        <p>Using technology to study animal behaviour, with a focus on RFID for individual identification.</p>
-        <ul>
-          <li>Automated animal detection</li>
-          <li>Long-term monitoring</li>
-        </ul>
-        <div class="photo-grid">
-          <div class="photo">photo 1</div>
-          <div class="photo">photo 2</div>
-        </div>
+    <div class="research-sub">
+      <h4>Next-generation Natural History</h4>
+      <p>Using technology to study animal behaviour, including RFID for Individual ID.</p>
+      <div class="photo-grid">
+        <div class="photo">photo 1</div>
+        <div class="photo">photo 2</div>
       </div>
-      <div class="research-sub" id="res-individuality">
-        <h4>Individuality and Individual Differences</h4>
-        <p>Exploring personality and in-hand aggressiveness as behavioural traits.</p>
-        <ul>
-          <li>Behavioural assays</li>
-          <li>Longitudinal personality data</li>
-        </ul>
-        <div class="photo-grid">
-          <div class="photo">photo 1</div>
-          <div class="photo">photo 2</div>
-        </div>
+    </div>
+    <div class="research-sub">
+      <h4>Individuality and Individual Differences</h4>
+      <p>Focus on personality and in-hand aggressiveness.</p>
+      <div class="photo-grid">
+        <div class="photo">photo 1</div>
+        <div class="photo">photo 2</div>
       </div>
     </div>
   </section>
@@ -139,76 +142,79 @@
   <!-- Projects -->
   <section id="projects">
     <h2>projects</h2>
-    <div class="box">
-      <h3>on-going collaborations</h3>
-      <div class="proj-sub" id="proj-belize">...</div>
-      <div class="proj-sub" id="proj-panama-fringelipped">...</div>
-      <div class="proj-sub" id="proj-jamaica-flowerbat">...</div>
+    <div id="project-map"></div>
+
+    <h3>Ongoing Projects</h3>
+    <div class="proj-sub" id="proj-belize">
+      <h4>Belize Long-term (2022- now)</h4>
+      <p>Large collaboration with scientists from >40 institutions and 10 countries. Research supported by AMNH. Project featured by NPR.</p>
+      <div class="photo-grid">
+        <div class="photo">photo 1</div>
+        <div class="photo">photo 2</div>
+      </div>
     </div>
-    <div class="box">
-      <h3>past projects</h3>
-      <div class="proj-sub" id="proj-ontario-rfid">...</div>
-      <div class="proj-sub" id="proj-eastern-canada-status">...</div>
+    <div class="proj-sub" id="proj-panama">
+      <h4>Social Structure and Behavioural Dynamics of Fringe-lipped Bats in Panama (2025)</h4>
+      <p>Smithsonian Tropical Research Institute. Research supported by STRI fellowship and AMNH.</p>
+      <div class="photo-grid">
+        <div class="photo">photo 1</div>
+        <div class="photo">photo 2</div>
+      </div>
     </div>
-    <div id="mapbox" style="height:420px; border:1px solid var(--border); margin-top:20px;"></div>
+
+    <h3>Past Projects</h3>
+    <div class="proj-sub" id="proj-ontario">
+      <h4>Long-term RFID Monitoring of Little Brown Bats in Ontario, Canada (2018-2024)</h4>
+      <p>Part of my PhD research. Established long term monitoring program around maternity roosts in and around Pinery Provincial Park. In collaboration with Ontario Parks.</p>
+      <div class="photo-grid">
+        <div class="photo">photo 1</div>
+        <div class="photo">photo 2</div>
+      </div>
+    </div>
+    <div class="proj-sub" id="proj-canada">
+      <h4>Population Status of Hibernating Bats in Eastern Canada (2022-2023)</h4>
+      <p>Capture surveys during summer and swarming. In collaboration with University of Waterloo, Environment Climate Change Canada.</p>
+      <div class="photo-grid">
+        <div class="photo">photo 1</div>
+        <div class="photo">photo 2</div>
+      </div>
+    </div>
   </section>
 </main>
 
-<footer class="wrap">
-  <p>&copy; <span id="y"></span> Caleb Cook Ryan</p>
-</footer>
-
 <!-- Leaflet JS -->
-<script
-  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""
-></script>
-
+  crossorigin=""></script>
 <script>
-document.getElementById('y').textContent = new Date().getFullYear();
-const allSections = Array.from(document.querySelectorAll('main section'));
-function showSection(id){ allSections.forEach(sec => sec.classList.toggle('active', sec.id === id)); }
-let mapInitialized = false;
-function initProjectsMap(){
-  if(mapInitialized || typeof L==='undefined') return;
-  const sites = [
-    { name:"Belize Long-term", coords:[17.25,-88.77], anchor:"proj-belize" },
-    { name:"Panama – Fringe-lipped bats", coords:[9.119,-79.704], anchor:"proj-panama-fringelipped" },
-    { name:"Ontario – Pinery", coords:[43.27,-81.83], anchor:"proj-ontario-rfid" },
-    { name:"Eastern Canada", coords:[46.5,-66.5], anchor:"proj-eastern-canada-status" },
-    { name:"Jamaica – Flower bat", coords:[18.1096,-77.2975], anchor:"proj-jamaica-flowerbat" }
+  // Navigation
+  const allSections = Array.from(document.querySelectorAll('main section'));
+  function showSection(id) {
+    allSections.forEach(sec => sec.classList.toggle('active', sec.id === id));
+  }
+  function navigate() {
+    const id = (location.hash || '#about').slice(1);
+    if (!document.getElementById(id)) return (location.hash = '#about');
+    showSection(id);
+  }
+  window.addEventListener('hashchange', navigate);
+  document.addEventListener('DOMContentLoaded', navigate);
+
+  // Map
+  const map = L.map('project-map').setView([15, -80], 3);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
+
+  const projects = [
+    { name: "Belize Long-term", coords: [17.1899, -88.4976], id: "proj-belize" },
+    { name: "Fringe-lipped Bats in Panama", coords: [8.53798, -80.7821], id: "proj-panama" },
+    { name: "Little Brown Bats in Ontario", coords: [43.45, -81.7], id: "proj-ontario" },
+    { name: "Hibernating Bats in Eastern Canada", coords: [46.8, -71.2], id: "proj-canada" }
   ];
-  const map = L.map('mapbox',{scrollWheelZoom:false});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
-  const markers = sites.map(s => {
-    const link = `<a href="#projects" data-anchor="${s.anchor}" class="map-link">Open details ↓</a>`;
-    return L.marker(s.coords).bindPopup(`<strong>${s.name}</strong><br>${link}`);
+
+  projects.forEach(p => {
+    L.marker(p.coords).addTo(map)
+      .bindPopup(`<b>${p.name}</b><br><a href="#${p.id}">View project</a>`);
   });
-  const group = L.featureGroup(markers).addTo(map);
-  map.fitBounds(group.getBounds().pad(0.2));
-  document.addEventListener('click', e=>{
-    const a = e.target.closest('.map-link');
-    if(!a) return;
-    e.preventDefault();
-    const id = a.getAttribute('data-anchor');
-    if(location.hash!=="#projects"){
-      location.hash="#projects";
-      setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:"smooth"}),60);
-    } else {
-      document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
-    }
-  });
-  mapInitialized = true;
-}
-function navigate(){
-  const id = (location.hash||'#about').slice(1);
-  if(!document.getElementById(id)) return location.hash='#about';
-  showSection(id);
-  if(id==='projects') initProjectsMap();
-}
-window.addEventListener('hashchange', navigate);
-document.addEventListener('DOMContentLoaded', navigate);
 </script>
 </body>
 </html>

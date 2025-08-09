@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>caleb cook ryan</title>
 
-  <!-- Favicon (tab icon) -->
+  <!-- Favicon -->
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- Work Sans -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Leaflet (map) -->
+  <!-- Leaflet CSS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -38,29 +38,18 @@
     main section { display:none; padding:24px 0; border-bottom:1px solid var(--border); }
     main section.active { display:block; }
     h1 { margin:0; font-weight:700; }
-    h2, h3 { margin:0 0 15px; font-weight:700; text-transform:lowercase; }
+    h2, h3, h4 { margin:0 0 15px; font-weight:700; text-transform:lowercase; }
 
-    .photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+    .photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:10px; }
     .photo { border:1px solid var(--border); height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; }
     .box { border:1px solid var(--border); padding:16px; margin:12px 0; }
+    .proj-sub, .research-sub { border-top:1px solid var(--border); padding-top:12px; margin-top:12px; }
+    .proj-sub h4, .research-sub h4 { margin:0 0 6px; text-transform:none; }
 
     .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
     .about-photo { flex:1 1 300px; border:1px solid var(--border); background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; padding:0; }
-    .about-photo img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-    /* force stacked layout for multiple about photos */
-    .about-container .about-photo {
-      display: flex;
-      flex-direction: column;   /* stack vertically */
-      align-items: center;       /* center horizontally */
-      justify-content: flex-start;
-      gap: 12px;                 /* space between photos */
-    }
-    .about-container .about-photo img { margin: 0; }
-
+    .about-photo img { max-width: 100%; height: auto; display: block; }
+    .about-container .about-photo { flex-direction: column; align-items: center; gap: 12px; }
     .about-text { flex:2 1 400px; }
 
     .cv-viewer { width:100%; height:800px; border:1px solid var(--border); }
@@ -77,319 +66,150 @@
     .contact { display:grid; grid-template-columns:1fr; gap:12px; }
     .contact-row { display:flex; align-items:center; gap:10px; }
     .contact .handle { font-weight:700; }
-    .icon { width:20px; height:20px; display:inline-block; }
     .contact-divider { border-top:1px solid var(--border); margin:16px 0; }
     .muted { color:#333; }
   </style>
 </head>
 <body>
-  <header class="wrap">
-    <div class="site-title">
-      <h1>Caleb Cook Ryan</h1>
-      <img src="favicon.png" alt="Site icon">
+<header class="wrap">
+  <div class="site-title">
+    <h1>Caleb Cook Ryan</h1>
+    <img src="favicon.png" alt="Site icon">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#about">about</a></li>
+      <li><a href="#research">research</a></li>
+      <li><a href="#publications">publications</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#blog">blog</a></li>
+      <li><a href="#cv">cv</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="wrap">
+  <!-- About -->
+  <section id="about" class="active">
+    <div class="about-container">
+      <div class="about-photo">
+        <img src="images/about_photo.jpeg" alt="Handling a bat in the field">
+        <img src="images/about_photo2.jpeg" alt="Headshot">
+      </div>
+      <div class="about-text">
+        <h3>about me</h3>
+        <p>My name is <strong>Caleb (he/him/il/ils)</strong> ...</p>
+        <!-- ... rest of about text ... -->
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#about">about</a></li>
-        <li><a href="#research">research</a></li>
-        <li><a href="#publications">publications</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#blog">blog</a></li>
-        <li><a href="#cv">cv</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  </section>
 
-  <main class="wrap">
-    <!-- about -->
-    <section id="about" class="active">
-      <h2></h2>
-      <div class="about-container">
-        <div class="about-photo">
-          <img src="images/about_photo.jpeg" alt="Handling a bat in the field">
-          <img src="images/about_photo2.jpeg" alt="Headshot">
-        </div>
-        <div class="about-text">
-          <h3>about me</h3>
-          <p>
-            My name is <strong>Caleb (he/him/il/ils)</strong>, I am currently a <strong>PhD Candidate</strong> in the Department of Biology at the
-            <strong>University of Waterloo</strong> in Canada and a <strong>Pre-Doctoral Fellow</strong> at the <strong>Smithsonian Tropical Research Institute</strong> in Panama.
-          </p>
-
-          <p>
-            My research broadly focuses on the social behaviour of bats. My work is strongly interdisciplinary, linking approaches from psychology, sociology,
-            and engineering to better understand bat lives. Currently, my research takes two main forms. First, I am interested in how individuality and consistent
-            behavioural differences influence the formation, maintenance, and function of social relationships in bats. These studies aim to reveal how variation
-            among individuals shapes cooperation, association patterns, and information exchange within social groups.
-          </p>
-
-          <p>
-            The second part of my research focuses on using big data approaches to expand our understanding of species’ natural histories.
-            I am broadly interested in method development and the integration of technology into wildlife research.
-            Recent advances in battery technology have greatly expanded the range of hardware solutions for studying even the smallest animals. With the
-            simultaneous increase in available computing power, researchers can generate and analyze massive datasets about what animals are up to, where they
-            are going, and who they are there with, offering unprecedented insights into the details of animal lives.
-          </p>
-          <p>
-            My work has been supported by research grants from the American Museum of Natural History, as well as funding from the Natural Sciences and Engineering
-            Research Council of Canada (NSERC) and the University of Waterloo.
-          </p>
-
-          <p>
-            Outside of research, I try to spend as much time as possible outdoors—mountain biking, running, birding, or sleeping in my hammock.
-          </p>
-        </div>
-      </div>
-      <!-- compact contact block at bottom of about -->
-      <div class="contact-divider"></div>
-      <div class="contact">
-        <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
-        <div class="contact-row">
-          <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
-        </div>
-        <div class="contact-row">
-          <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
-        </div>
-        <div class="contact-row">
-          <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- research -->
-    <section id="research">
-      <h2>research</h2>
-
-      <div class="box">
-        <h3>Next-generation Natural History</h3>
+  <!-- Research -->
+  <section id="research">
+    <h2>research</h2>
+    <div class="box">
+      <div class="research-sub" id="res-nextgen">
+        <h4>Next-generation Natural History</h4>
+        <p>Using technology to study animal behaviour, with a focus on RFID for individual identification.</p>
         <ul>
-          <li>Using technology to study animal behaviour</li>
-          <li>RFID for Individual ID</li>
+          <li>Automated animal detection</li>
+          <li>Long-term monitoring</li>
         </ul>
-      </div>
-
-      <div class="box">
-        <h3>Individuality and Individual Differences</h3>
-        <ul>
-          <li>Personality</li>
-          <li>In-hand aggressiveness</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- publications -->
-    <section id="publications">
-      <h2>publications</h2>
-      <div class="pubs" id="pubs">loading publications…</div>
-    </section>
-
-    <!-- projects -->
-    <section id="projects">
-      <h2>projects</h2>
-
-      <div class="box">
-        <h3>on-going</h3>
-        <ul>
-          <li>
-            <strong>Long-term RFID Mark-Monitoring of Bats in Belize </strong> <p>Large collaboration with scientists from over 40 institutions and 10 countries.
-            Research supported by AMNH. Project featured by NPR.</p>
-          </li>
-          <li>
-            <strong>Social Structure and Behavioural Dynamics of Fringe-lipped Bats in Panama</strong> <p>Smithsonian Tropical Research Institute.
-            Research supported by STRI fellowship and AMNH.</p>
-          </li>
-          <li>
-            <strong>Social Structure and Movement Dynamics of the Jamaican Flower Bat</strong>  <p>In collaboration with the University of the West Indies, Bat Conservation International, and York University</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="box">
-        <h3>past projects</h3>
-        <ul>
-          <li>
-            <strong>Long-term RFID Monitoring of Little Brown Bats in Ontario, Canada (2018–2024)</strong> — Part of my PhD research.
-            Established long-term monitoring program around maternity roosts in and around Pinery Provincial Park, in collaboration with Ontario Parks.
-          </li>
-          <li>
-            <strong>Population Status of Hibernating Bats in Eastern Canada (2022–2023)</strong> — Capture surveys during summer and swarming.
-            In collaboration with University of Waterloo and Environment and Climate Change Canada.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Map -->
-      <div id="mapbox" style="height:420px; border:1px solid var(--border); margin-top:20px;"></div>
-    </section>
-
-    <!-- blog -->
-    <section id="blog">
-      <h2>blog</h2>
-      <div class="box"><h3>recent posts</h3><ul><li><strong></strong></li></ul></div>
-      <div class="photo-grid">
-        <div class="photo">blog post image</div>
-      </div>
-    </section>
-
-    <!-- cv -->
-    <section id="cv">
-      <h2>cv</h2>
-      <p><a href="caleb_cv_current.pdf" target="_blank" rel="noopener">download cv (pdf)</a></p>
-      <div class="box"><h3>full cv</h3>
-        <embed src="caleb_cv_current.pdf" type="application/pdf" class="cv-viewer">
-      </div>
-    </section>
-
-    <!-- contact -->
-    <section id="contact">
-      <h2>contact</h2>
-      <div class="contact">
-        <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
-        <div class="contact-row">
-          <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
-        </div>
-        <div class="contact-row">
-          <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
-        </div>
-        <div class="contact-row">
-          <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
+        <div class="photo-grid">
+          <div class="photo">photo 1</div>
+          <div class="photo">photo 2</div>
         </div>
       </div>
-    </section>
-  </main>
+      <div class="research-sub" id="res-individuality">
+        <h4>Individuality and Individual Differences</h4>
+        <p>Exploring personality and in-hand aggressiveness as behavioural traits.</p>
+        <ul>
+          <li>Behavioural assays</li>
+          <li>Longitudinal personality data</li>
+        </ul>
+        <div class="photo-grid">
+          <div class="photo">photo 1</div>
+          <div class="photo">photo 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="wrap">
-    <p>&copy; <span id="y"></span> Caleb Cook Ryan</p>
-  </footer>
+  <!-- Projects -->
+  <section id="projects">
+    <h2>projects</h2>
+    <div class="box">
+      <h3>on-going collaborations</h3>
+      <div class="proj-sub" id="proj-belize">...</div>
+      <div class="proj-sub" id="proj-panama-fringelipped">...</div>
+      <div class="proj-sub" id="proj-jamaica-flowerbat">...</div>
+    </div>
+    <div class="box">
+      <h3>past projects</h3>
+      <div class="proj-sub" id="proj-ontario-rfid">...</div>
+      <div class="proj-sub" id="proj-eastern-canada-status">...</div>
+    </div>
+    <div id="mapbox" style="height:420px; border:1px solid var(--border); margin-top:20px;"></div>
+  </section>
+</main>
 
-  <script>
-    // footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+<footer class="wrap">
+  <p>&copy; <span id="y"></span> Caleb Cook Ryan</p>
+</footer>
 
-    // hash-based tabs (only one section visible)
-    const allSections = Array.from(document.querySelectorAll('main section'));
-    function showSection(id) {
-      allSections.forEach(sec => sec.classList.toggle('active', sec.id === id));
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+
+<script>
+document.getElementById('y').textContent = new Date().getFullYear();
+const allSections = Array.from(document.querySelectorAll('main section'));
+function showSection(id){ allSections.forEach(sec => sec.classList.toggle('active', sec.id === id)); }
+let mapInitialized = false;
+function initProjectsMap(){
+  if(mapInitialized || typeof L==='undefined') return;
+  const sites = [
+    { name:"Belize Long-term", coords:[17.25,-88.77], anchor:"proj-belize" },
+    { name:"Panama – Fringe-lipped bats", coords:[9.119,-79.704], anchor:"proj-panama-fringelipped" },
+    { name:"Ontario – Pinery", coords:[43.27,-81.83], anchor:"proj-ontario-rfid" },
+    { name:"Eastern Canada", coords:[46.5,-66.5], anchor:"proj-eastern-canada-status" },
+    { name:"Jamaica – Flower bat", coords:[18.1096,-77.2975], anchor:"proj-jamaica-flowerbat" }
+  ];
+  const map = L.map('mapbox',{scrollWheelZoom:false});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+  const markers = sites.map(s => {
+    const link = `<a href="#projects" data-anchor="${s.anchor}" class="map-link">Open details ↓</a>`;
+    return L.marker(s.coords).bindPopup(`<strong>${s.name}</strong><br>${link}`);
+  });
+  const group = L.featureGroup(markers).addTo(map);
+  map.fitBounds(group.getBounds().pad(0.2));
+  document.addEventListener('click', e=>{
+    const a = e.target.closest('.map-link');
+    if(!a) return;
+    e.preventDefault();
+    const id = a.getAttribute('data-anchor');
+    if(location.hash!=="#projects"){
+      location.hash="#projects";
+      setTimeout(()=>document.getElementById(id)?.scrollIntoView({behavior:"smooth"}),60);
+    } else {
+      document.getElementById(id)?.scrollIntoView({behavior:"smooth"});
     }
-
-    // ---- Projects map (lazy init) ----
-    let mapInitialized = false;
-    function initProjectsMap(){
-      if (mapInitialized || typeof L === 'undefined') return;
-
-      // Project sites (approximate coordinates)
-      const sites = [
-        { name: "Indian Church, Belize", coords: [17.25, -88.77], note: "" },
-        { name: "Gamboa, Panama", coords: [9.119, -79.704], note: "" }, // Gamboa
-        { name: "Pinery Provincial Park, Canada", coords: [43.27, -81.83], note: "" },
-        { name: "Eastern Canada", coords: [46.5, -66.5], note: "" },
-        { name: "Jamaica", coords: [18.13, -77.05], note: "" }
-      ];
-
-      const map = L.map('mapbox', { scrollWheelZoom: false });
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO'
-      }).addTo(map);
-
-      const markers = sites.map(s => {
-        return L.marker(s.coords).bindPopup(`<strong>${s.name}</strong><br>${s.note || ''}`);
-      });
-      const group = L.featureGroup(markers).addTo(map);
-      map.fitBounds(group.getBounds().pad(0.2));
-
-      mapInitialized = true;
-    }
-
-    function navigate() {
-      const id = (location.hash || '#about').slice(1);
-      if (!document.getElementById(id)) return (location.hash = '#about');
-      showSection(id);
-      if (id === 'projects') initProjectsMap();
-    }
-    window.addEventListener('hashchange', navigate);
-    document.addEventListener('DOMContentLoaded', navigate);
-
-    // publications: Altmetric by default, PlumX if pub.plumx === true
-    function normalizeMyName(html){
-      return html.replace(/caleb\s+cook\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
-    }
-
-    fetch('publication.json')
-      .then(res => res.json())
-      .then(data => {
-        const pubs = document.getElementById('pubs');
-        pubs.innerHTML = '';
-
-        for (const yearBlock of data.years) {
-          const yearDiv = document.createElement('div');
-          yearDiv.className = 'year';
-          yearDiv.textContent = yearBlock.year;
-          pubs.appendChild(yearDiv);
-
-          const ol = document.createElement('ol');
-          ol.className = 'pub-list';
-
-          for (const pub of yearBlock.pubs) {
-            const li = document.createElement('li');
-            li.className = 'pub-item';
-
-            const cite = document.createElement('span');
-            cite.className = 'cite';
-            cite.innerHTML = normalizeMyName(pub.citation || '');
-
-            const linksDiv = document.createElement('div');
-            linksDiv.className = 'links';
-
-            if (pub.pdf) {
-              const a = document.createElement('a');
-              a.href = pub.pdf;
-              a.setAttribute('aria-label', 'PDF');
-              a.innerHTML = '<img class="pdf-icon" src="favicon.png" alt="PDF">';
-              linksDiv.appendChild(a);
-            }
-
-            li.appendChild(cite);
-            li.appendChild(linksDiv);
-
-            // Metrics: if pub.plumx is true, show PlumX; else Altmetric
-            if (pub.plumx === true && (pub.doi || pub.pmid)) {
-              const plumURL = pub.doi
-                ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
-                : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
-              const plumA = document.createElement('a');
-              plumA.className = 'plumx-plum-print-popup';
-              plumA.setAttribute('data-popup','right');
-              plumA.setAttribute('data-hide-when-empty','false');
-              plumA.href = plumURL;
-              plumA.textContent = 'PlumX';
-              li.appendChild(plumA);
-            } else if (pub.doi || pub.pmid) {
-              const altDiv = document.createElement('div');
-              const idAttr = pub.pmid ? `data-pmid="${pub.pmid}"` : `data-doi="${pub.doi}"`;
-              altDiv.innerHTML = `<span class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="false" data-link-target="_blank" ${idAttr}></span>`;
-              li.appendChild(altDiv);
-            }
-
-            ol.appendChild(li);
-          }
-
-          pubs.appendChild(ol);
-        }
-      });
-  </script>
-
-  <!-- Leaflet JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-
-  <!-- Altmetric + PlumX scripts (render badges/popups) -->
-  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
-  <script async src="https://cdn.plu.mx/widget-popup.js"></script>
+  });
+  mapInitialized = true;
+}
+function navigate(){
+  const id = (location.hash||'#about').slice(1);
+  if(!document.getElementById(id)) return location.hash='#about';
+  showSection(id);
+  if(id==='projects') initProjectsMap();
+}
+window.addEventListener('hashchange', navigate);
+document.addEventListener('DOMContentLoaded', navigate);
+</script>
 </body>
 </html>
-
 

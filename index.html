@@ -40,10 +40,51 @@
     h1 { margin:0; font-weight:700; }
     h2, h3, h4 { margin:0 0 15px; font-weight:700; text-transform:lowercase; }
 
-    .photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; margin-top:10px; }
-    .photo { border:1px solid var(--border); height:200px; background:#f0f0f0; display:flex; align-items:center; justify-content:center; color:#666; }
+   .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 16px;
+      margin-top: 10px;
+    }
+    
+    .photo {
+      border: 1px solid var(--border);
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      height: 200px; /* You can adjust this as needed */
+      min-height: 200px; /* Keeps consistent height across grid items */
+    }
+    
+    .photo img {
+      max-width: 100%; /* Ensure image fits inside the container */
+      height: auto; /* Maintain aspect ratio */
+    }
+
     .box { border:1px solid var(--border); padding:16px; margin:12px 0; }
-    .proj-sub, .research-sub { border-top:1px solid var(--border); padding-top:12px; margin-top:12px; }
+    .proj-sub {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    
+    .proj-sub h4 {
+      font-size: 1.5rem; /* Adjustable heading size */
+      margin-bottom: 10px; /* Space between the heading and content */
+    }
+    
+    .proj-sub p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 10px; /* Space between paragraphs */
+    }
+    
+    .proj-sub .photo-grid {
+      margin-top: 20px; /* Space between text and image grid */
+    }
     .proj-sub h4, .research-sub h4 { margin:0 0 6px; text-transform:none; }
 
     .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
@@ -97,26 +138,18 @@
       <div class="about-container">
         <div class="about-photo">
           <img src="images/about_photo.jpeg" alt="Handling a bat in the field">
-          <img src="images/about_photo2.jpeg" alt="Headshot">
         </div>
         <div class="about-text">
           <h3>about me</h3>
           <p>
-            My name is Caleb (he/him/il/ils), and I am currently a PhD Candidate in the Department of Biology at the University of Waterloo in Canada and a Pre-Doctoral Fellow at the Smithsonian Tropical Research Institute in Panama. 
+            My name is <strong>Caleb (he/him)</strong>, and I am currently a <stong>PhD Candidate</stong> in the Department of Biology at the <strong>University of Waterloo</strong> in Canada
+            and a <strong>Pre-Doctoral Fellow</strong> at the <strong>Smithsonian Tropical Research Institute</strong> in Panama. 
+            
+          </p>
+          <p>
             My research broadly focuses on the social behaviour of bats. My work is strongly interdisciplinary, linking approaches from psychology, sociology, 
-            and engineering to better understand bat lives.
-          </p>
-          <p>
-            Currently, my research takes two main forms. First, I investigate how individuality and consistent behavioural differences influence the formation, 
-            maintenance, and function of social relationships in bats. These studies aim to reveal how variation among individuals shapes cooperation, 
-            association patterns, and information exchange within social groups. 
-          </p>
-          <p>
-            The second part of my research focuses on using big data approaches to expand our understanding of species’ natural histories. 
-            I am broadly interested in method development and the integration of technology into wildlife research. 
-            Recent advances in battery technology have greatly expanded the range of hardware solutions for studying even the smallest animals. With the 
-            simultaneous increase in available computing power, researchers can generate and analyze massive datasets about what animals are up to, where they 
-            are going, and who they are there with, offering unprecedented insights into the details of animal lives.
+            and engineering to better understand bat lives. 
+            I am broadly interested in the integration of technology into wildlife research and using data driven approaches to expand our understanding of species’ natural histories.
           </p>
           <p>
             My work has been supported by research grants from the American Museum of Natural History, as well as funding from the Natural Sciences and Engineering 
@@ -192,7 +225,7 @@
           <p>Large collaboration with scientists from >40 institutions and 10 countries. Research supported by AMNH. Project featured by NPR.</p>
           <div class="photo-grid">
             <div class="photo">
-              <img src="images/lamanai_photo.jpeg" alt="lamanai">
+              <img src="images/lamanai_photo.jpg" alt="lamanai">
             </div>
             <div class="photo">
               <img src="images/lamanai_photo2.jpeg" alt="lamanai">

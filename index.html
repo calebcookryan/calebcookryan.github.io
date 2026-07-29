@@ -103,18 +103,21 @@
     .pdf-icon { width:20px; height:auto; vertical-align:middle; }
 
     /* contact */
-    .contact { display:grid; grid-template-columns:1fr; gap:12px; }
+    .contact { display:grid; grid-template-columns:1fr; gap:8px; }
     .contact-row { display:flex; align-items:center; gap:10px; }
     .contact .handle { font-weight:700; }
     .contact-divider { border-top:1px solid var(--border); margin:16px 0; }
     .muted { color:#333; }
 
-    /* logos next to contact */
-    .contact-with-logos { display:flex; align-items:center; gap:20px; justify-content:space-between; flex-wrap:wrap; }
-    .contact-left { flex:1 1 320px; min-width:0; }
-    .contact-right { flex:0 0 auto; display:flex; align-items:center; }
-    .social-logos { display:flex; gap:12px; align-items:center; }
-    .social-logos img { height:56px; width:auto; display:block; max-width:220px; }
+    /* logos as a full-width banner */
+    .logo-banner { display:flex; gap:24px; align-items:center; justify-content:space-between; width:100%; padding:18px 0; margin-top:20px; border-top:1px solid var(--border); }
+    .logo-banner a { flex:1 1 0; display:flex; align-items:center; justify-content:center; }
+    .logo-banner img { max-height:120px; width:auto; max-width:33%; object-fit:contain; display:block; }
+
+    @media (max-width:700px) {
+      .logo-banner { flex-direction:column; gap:12px; }
+      .logo-banner img { max-height:90px; max-width:80%; }
+    }
 
     /* map box */
     #mapbox { height:420px; border:1px solid var(--border); margin-top:20px; }
@@ -165,30 +168,34 @@
           </p>
         </div>
       </div>
+
       <div class="contact-divider"></div>
 
-      <!-- CONTACT ROW WITH LOGOS (added) -->
-      <div class="contact contact-with-logos">
-        <div class="contact-left">
-          <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
-          <div class="contact-row">
-            <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
-          </div>
-          <div class="contact-row">
-            <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
-          </div>
-          <div class="contact-row">
-            <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
-          </div>
+      <!-- CONTACT TEXT (moved below main about text) -->
+      <div class="contact" aria-label="Contact information">
+        <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
+        <div class="contact-row">
+          <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
         </div>
+        <div class="contact-row">
+          <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
+        </div>
+        <div class="contact-row">
+          <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
+        </div>
+      </div>
 
-        <div class="contact-right" aria-hidden="false">
-          <div class="social-logos">
-            <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Smithsonian Tropical Research Institute"><img src="images/stri_logo_cropped.png" alt="Smithsonian Tropical Research Institute logo"></a>
-            <a href="https://www.utk.edu/" target="_blank" rel="noopener" title="University of Tennessee"><img src="images/utk_Logo.png" alt="University of Tennessee logo"></a>
-            <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Center for Animal Behavior / STRI"><img src="images/centerforab_stri_logo.png" alt="Center for Animal Behavior and STRI banner"></a>
-          </div>
-        </div>
+      <!-- LOGO BANNER (fills full width at bottom of section) -->
+      <div class="logo-banner" role="region" aria-label="Affiliated institutions">
+        <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Smithsonian Tropical Research Institute">
+          <img src="images/stri_logo_cropped.png" alt="Smithsonian Tropical Research Institute logo">
+        </a>
+        <a href="https://www.utk.edu/" target="_blank" rel="noopener" title="University of Tennessee">
+          <img src="images/utk_Logo.png" alt="University of Tennessee logo">
+        </a>
+        <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Center for Animal Behavior / STRI">
+          <img src="images/centerforab_stri_logo.png" alt="Center for Animal Behavior and STRI banner">
+        </a>
       </div>
 
     </section>

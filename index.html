@@ -531,7 +531,6 @@
         </div>
 
         <div class="about-text">
-          <p class="eyebrow">bat behaviour · wildlife technology · field ecology</p>
           <h2>about me</h2>
 
           <p>
@@ -719,8 +718,7 @@
 
       <div class="fun-intro">
         <p>
-          Photos from fieldwork, travel, surfing, mountain biking, birding, and whatever else seems
-          worth saving. All images shown here are loaded from the <code>images/fun_stuff</code> folder.
+          Photos from along the way.
         </p>
       </div>
 
@@ -875,8 +873,8 @@
     // Add image files to images/fun_stuff, then add each filename and caption below.
     // Example file path: images/fun_stuff/surfing_panama.jpg
     const funStuffImages = [
-      // { file: "surfing_panama.jpg", caption: "Surfing in Panama" },
-      // { file: "mountain_biking.jpg", caption: "Mountain biking" },
+       { file: "caleb_trachops_film.jpeg", caption: "" },
+       { file: "caleb_mic_trachops_film.jpeg", caption: "" },
       // { file: "field_camp.jpg", caption: "A good field camp" }
     ];
 
@@ -889,9 +887,6 @@
         gallery.innerHTML = `
           <strong>Your Fun Stuff page is ready.</strong>
           <p style="margin-top:8px; margin-bottom:0;">
-            Create the folder <code>images/fun_stuff</code>, place your images inside it,
-            and add their filenames to the <code>funStuffImages</code> list near the bottom
-            of this file.
           </p>
         `;
         return;

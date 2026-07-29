@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>caleb cook ryan</title>
+  <meta name="description" content="Caleb Cook Ryan — bat behaviour, wildlife technology, and interdisciplinary field research." />
+  <title>Caleb Cook Ryan</title>
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.png" type="image/png">
@@ -12,7 +13,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Leaflet (map) -->
   <link
@@ -23,114 +24,497 @@
   />
 
   <style>
-    :root { --bg:#fff; --text:#000; --border:#000; --maxw:1080px; }
-    * { box-sizing:border-box; }
-    html, body { margin:0; background:var(--bg); color:var(--text); font-family:'Work Sans',sans-serif; }
-    .wrap { max-width:var(--maxw); margin:0 auto; padding:24px; }
-
-    header { border-bottom:1px solid var(--border); padding:16px 0; display:flex; align-items:center; justify-content:space-between; }
-    .site-title { display:flex; align-items:center; gap:10px; }
-    .site-title img { width:32px; height:32px; }
-    nav ul { list-style:none; display:flex; gap:20px; margin:0; padding:0; }
-    nav a { text-decoration:none; color:var(--text); font-weight:700; cursor:pointer; text-transform:lowercase; }
-    nav a:hover { text-decoration:underline; }
-
-    main section { display:none; padding:24px 0; border-bottom:1px solid var(--border); }
-    main section.active { display:block; }
-    h1 { margin:0; font-weight:700; }
-    h2, h3, h4 { margin:0 0 15px; font-weight:700; text-transform:lowercase; }
-
-   .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 16px;
-      margin-top: 10px;
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #5d5d5d;
+      --soft: #f5f5f3;
+      --border: #171717;
+      --maxw: 1120px;
+      --radius: 14px;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
     }
-    
-    .photo {
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Work Sans", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; }
+
+    a {
+      color: inherit;
+      text-underline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(100% - 40px, var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 17px 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .site-title {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: max-content;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .site-title img {
+      width: 33px;
+      height: 33px;
+      object-fit: contain;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px 19px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    nav a {
+      font-size: 0.91rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: lowercase;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      text-decoration: underline;
+    }
+
+    main section {
+      display: none;
+      min-height: 65vh;
+      padding: clamp(34px, 6vw, 72px) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    main section.active {
+      display: block;
+      animation: fadeIn 0.22s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2,
+    h3,
+    h4 {
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    h2 {
+      margin: 0 0 28px;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      text-transform: lowercase;
+    }
+
+    h3 {
+      margin: 0 0 14px;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      text-transform: lowercase;
+    }
+
+    h4 {
+      margin: 0 0 9px;
+      font-size: 1.35rem;
+      text-transform: none;
+    }
+
+    p { margin: 0 0 1em; }
+
+    .eyebrow {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-size: 0.79rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .muted { color: var(--muted); }
+
+    .box {
+      margin: 0 0 24px;
+      padding: clamp(20px, 4vw, 34px);
       border: 1px solid var(--border);
-      background: #f0f0f0;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    /* ABOUT */
+    .about-container {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.85fr) minmax(320px, 1.45fr);
+      gap: clamp(28px, 6vw, 72px);
+      align-items: start;
+    }
+
+    .about-photo {
+      position: sticky;
+      top: 112px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--soft);
+      box-shadow: var(--shadow);
+    }
+
+    .about-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .about-text {
+      font-size: 1.04rem;
+    }
+
+    .about-text strong { font-weight: 700; }
+
+    .about-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .about-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.91rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .about-links a:hover {
+      transform: translateY(-2px);
+      background: var(--soft);
+    }
+
+    /* INSTITUTIONAL LOGO BANNER */
+    .institution-banner {
+      margin-top: clamp(38px, 6vw, 70px);
+      padding: 26px clamp(15px, 4vw, 38px);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--soft);
+    }
+
+    .institution-banner-inner {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: center;
+      gap: clamp(22px, 5vw, 64px);
+    }
+
+    .institution-banner a {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #666;
-      height: 200px; /* You can adjust this as needed */
-      min-height: 200px; /* Keeps consistent height across grid items */
-    }
-    
-    .photo img {
-      max-width: 100%; /* Ensure image fits inside the container */
-      height: auto; /* Maintain aspect ratio */
+      min-height: 88px;
     }
 
-    .box { border:1px solid var(--border); padding:16px; margin:12px 0; }
-    .proj-sub {
+    .institution-banner img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 72px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.78;
+      transition: filter 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .institution-banner a:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    .institution-banner .wide-logo {
+      max-height: 84px;
+    }
+
+    /* PHOTOS */
+    .photo-grid,
+    .fun-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 17px;
+      margin-top: 22px;
+    }
+
+    .photo,
+    .fun-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--soft);
+    }
+
+    .photo {
+      min-height: 220px;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
     }
-    
-    .proj-sub h4 {
-      font-size: 1.5rem; /* Adjustable heading size */
-      margin-bottom: 10px; /* Space between the heading and content */
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
     }
-    
-    .proj-sub p {
-      font-size: 1rem;
+
+    .photo:hover img,
+    .fun-card:hover img {
+      transform: scale(1.025);
+    }
+
+    .research-sub,
+    .proj-sub {
+      padding: 6px 0 30px;
+    }
+
+    .research-sub + .research-sub,
+    .proj-sub + .proj-sub {
+      padding-top: 30px;
+      border-top: 1px solid #cfcfcf;
+    }
+
+    .research-sub:last-child,
+    .proj-sub:last-child {
+      padding-bottom: 0;
+    }
+
+    /* FUN STUFF */
+    .fun-intro {
+      max-width: 760px;
+      margin-bottom: 28px;
+      font-size: 1.07rem;
+    }
+
+    .fun-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .fun-card figcaption {
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .fun-empty {
+      padding: 30px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      background: var(--soft);
+    }
+
+    /* PUBLICATIONS */
+    .pubs .year {
+      margin-top: 28px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .pub-list {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pub-item {
+      margin: 16px 0 24px;
+    }
+
+    .pub-item .cite {
+      display: block;
+      padding-left: 1.5em;
       line-height: 1.5;
-      margin-bottom: 10px; /* Space between paragraphs */
+      text-indent: -1.5em;
     }
-    
-    .proj-sub .photo-grid {
-      margin-top: 20px; /* Space between text and image grid */
+
+    .pub-item .links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 7px;
     }
-    .proj-sub h4, .research-sub h4 { margin:0 0 6px; text-transform:none; }
 
-    .about-container { display:flex; flex-wrap:wrap; gap:24px; align-items:flex-start; }
-    .about-photo { flex:1 1 300px; border:1px solid var(--border); background:#f0f0f0; display:flex; flex-direction:column; align-items:center; gap:12px; color:#666; padding:0; }
-    .about-photo img { max-width: 100%; height: auto; display: block; }
-    .about-text { flex:2 1 400px; }
+    .pdf-icon {
+      width: 22px;
+      height: auto;
+      vertical-align: middle;
+    }
 
-    .cv-viewer { width:100%; height:800px; border:1px solid var(--border); }
+    /* CONTACT */
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 13px;
+      max-width: 700px;
+    }
 
-    /* publications */
-    .pubs .year { border-top:1px solid var(--border); padding-top:8px; margin-top:20px; font-weight:700; }
-    .pub-list { list-style:none; padding:0; margin:8px 0 0; }
-    .pub-item { margin:12px 0; }
-    .pub-item .cite { display:block; text-indent:-1.5em; padding-left:1.5em; line-height:1.4; }
-    .pub-item .links { display:flex; align-items:center; gap:14px; margin-top:4px; }
-    .pdf-icon { width:20px; height:auto; vertical-align:middle; }
+    .contact-row {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-    /* contact */
-    .contact { display:grid; grid-template-columns:1fr; gap:12px; }
-    .contact-row { display:flex; align-items:center; gap:10px; }
-    .contact .handle { font-weight:700; }
-    .contact-divider { border-top:1px solid var(--border); margin:16px 0; }
-    .muted { color:#333; }
+    .contact .handle { font-weight: 700; }
 
-    /* logos next to contact */
-    .contact-with-logos { display:flex; align-items:center; gap:20px; justify-content:space-between; flex-wrap:wrap; }
-    .contact-left { flex:1 1 320px; min-width:0; }
-    .contact-right { flex:0 0 auto; display:flex; align-items:center; }
-    .social-logos { display:flex; gap:12px; align-items:center; }
-    .social-logos img { height:56px; width:auto; display:block; max-width:220px; }
+    /* CV + MAP */
+    .cv-viewer {
+      width: 100%;
+      height: min(800px, 75vh);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
 
-    /* map box */
-    #mapbox { height:420px; border:1px solid var(--border); margin-top:20px; }
+    #mapbox {
+      height: 440px;
+      margin-top: 28px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 850px) {
+      header {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav ul {
+        justify-content: flex-start;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-photo {
+        position: static;
+        max-width: 620px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .wrap {
+        width: min(100% - 26px, var(--maxw));
+      }
+
+      nav ul {
+        gap: 8px 14px;
+      }
+
+      main section {
+        padding: 34px 0 48px;
+      }
+
+      .institution-banner-inner {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .institution-banner a {
+        min-height: 70px;
+      }
+
+      .institution-banner img,
+      .institution-banner .wide-logo {
+        max-height: 62px;
+        max-width: 270px;
+      }
+
+      .photo-grid,
+      .fun-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header class="wrap">
     <div class="site-title">
       <h1>Caleb Cook Ryan</h1>
       <img src="favicon.png" alt="Site icon">
     </div>
-    <nav>
+
+    <nav aria-label="Primary navigation">
       <ul>
         <li><a href="#about">about</a></li>
         <li><a href="#research">research</a></li>
         <li><a href="#projects">projects</a></li>
+        <li><a href="#fun-stuff">fun stuff</a></li>
         <li><a href="#publications">publications</a></li>
         <li><a href="#cv">cv</a></li>
         <li><a href="#contact">contact</a></li>
@@ -139,61 +523,73 @@
   </header>
 
   <main class="wrap">
-    <!-- about -->
+    <!-- ABOUT -->
     <section id="about" class="active">
-      <h2></h2>
       <div class="about-container">
         <div class="about-photo">
-          <img src="images/about_photo.jpeg" alt="Handling a bat in the field">
+          <img src="images/about_photo.jpeg" alt="Caleb Cook Ryan handling a bat in the field">
         </div>
+
         <div class="about-text">
-          <h3>about me</h3>
-          <p>
-            My name is <strong>Dr. Caleb Cook Ryan (he/him)</strong>, and I am currently a <strong>Interdisciplinary Post-doctoral Research Fellow </strong> in the <strong> Center for Animal Behavior Research </strong> at the <strong>Smithsonian Tropical Research Institute</strong> in Panama and a <strong> Post-doctoral Fellow </strong> in the <strong> Department of Ecology and Evolutionary Biology </strong> at the <strong>University of Tennessee, Knoxville</strong> in the USA. 
-          </p>
-          <p>
-            My research broadly focuses on the social behaviour of bats. My work is strongly interdisciplinary, linking approaches from psychology, sociology, 
-            and engineering to better understand bat lives. 
-            I am broadly interested in the integration of technology into wildlife research and using data driven approaches to expand our understanding of species’ natural histories.
-          </p>
-          <p>
-            My work has been supported by research grants from the American Museum of Natural History, as well as funding from the Natural Sciences and Engineering 
-            Research Council of Canada (NSERC) and the University of Waterloo.
-          </p>
-          <p>
-            Outside of research, I try to spend as much time as possible outdoors—mountain biking, surfing, running, birding, or sleeping in my hammock.
-          </p>
-        </div>
-      </div>
-      <div class="contact-divider"></div>
+          <p class="eyebrow">bat behaviour · wildlife technology · field ecology</p>
+          <h2>about me</h2>
 
-      <!-- CONTACT ROW WITH LOGOS (added) -->
-      <div class="contact contact-with-logos">
-        <div class="contact-left">
-          <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
-          <div class="contact-row">
-            <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
-          </div>
-          <div class="contact-row">
-            <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
-          </div>
-          <div class="contact-row">
-            <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
-          </div>
-        </div>
+          <p>
+            My name is <strong>Dr. Caleb Cook Ryan (he/him)</strong>, and I am currently an
+            <strong>Interdisciplinary Postdoctoral Research Fellow</strong> in the
+            <strong>Center for Animal Behavior Research</strong> at the
+            <strong>Smithsonian Tropical Research Institute</strong> in Panama and a
+            <strong>Postdoctoral Fellow</strong> in the
+            <strong>Department of Ecology and Evolutionary Biology</strong> at the
+            <strong>University of Tennessee, Knoxville</strong> in the USA.
+          </p>
 
-        <div class="contact-right" aria-hidden="false">
-          <div class="social-logos">
-            <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Smithsonian Tropical Research Institute"><img src="images/stri_logo_cropped.png" alt="Smithsonian Tropical Research Institute logo"></a>
-            <a href="https://www.utk.edu/" target="_blank" rel="noopener" title="University of Tennessee"><img src="images/utk_Logo.png" alt="University of Tennessee logo"></a>
-            <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Center for Animal Behavior / STRI"><img src="images/centerforab_stri_logo.png" alt="Center for Animal Behavior and STRI banner"></a>
+          <p>
+            My research broadly focuses on the social behaviour of bats. My work is strongly
+            interdisciplinary, linking approaches from psychology, sociology, and engineering
+            to better understand bat lives. I am broadly interested in integrating technology
+            into wildlife research and using data-driven approaches to expand our understanding
+            of species’ natural histories.
+          </p>
+
+          <p>
+            My work has been supported by research grants from the American Museum of Natural
+            History, as well as funding from the Natural Sciences and Engineering Research Council
+            of Canada (NSERC) and the University of Waterloo.
+          </p>
+
+          <p>
+            Outside of research, I try to spend as much time as possible outdoors—mountain biking,
+            surfing, running, birding, or sleeping in my hammock.
+          </p>
+
+          <div class="about-links" aria-label="Profile links">
+            <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">Twitter</a>
+            <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">Instagram</a>
+            <a href="#cv">View CV</a>
           </div>
         </div>
       </div>
 
+      <div class="institution-banner" aria-label="Institutional affiliations">
+        <div class="institution-banner-inner">
+          <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Smithsonian Tropical Research Institute">
+            <img src="images/stri_logo_cropped.png" alt="Smithsonian Tropical Research Institute logo">
+          </a>
+
+          <a href="https://www.utk.edu/" target="_blank" rel="noopener" title="University of Tennessee">
+            <img src="images/utk_Logo.png" alt="University of Tennessee logo">
+          </a>
+
+          <a href="https://stri.si.edu/" target="_blank" rel="noopener" title="Center for Animal Behavior Research">
+            <img class="wide-logo" src="images/centerforab_stri_logo.png" alt="Center for Animal Behavior Research and STRI logo">
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- research -->
+    <!-- RESEARCH -->
     <section id="research">
       <h2>research</h2>
 
@@ -202,17 +598,19 @@
           <h4>Next-generation Natural History</h4>
           <p>Using technology to study animal behaviour.</p>
           <ul>
-            <li>RFID for Individual ID</li>
+            <li>RFID for individual identification</li>
           </ul>
+
           <div class="photo-grid">
             <div class="photo">
-              <img src="images/lamanai_photo.jpeg" alt="lamanai">
+              <img src="images/lamanai_photo.jpeg" alt="Field research at Lamanai">
             </div>
             <div class="photo">
-              <img src="images/lamanai_photo2.jpeg" alt="lamanai">
+              <img src="images/lamanai_photo2.jpeg" alt="Bat fieldwork at Lamanai">
             </div>
             <div class="photo">
-              <img src="images/lamanai_photo3.jpeg" alt="lamanai">
+              <img src="images/lamanai_photo3.jpeg" alt="Research equipment at Lamanai">
+            </div>
           </div>
         </div>
 
@@ -223,6 +621,7 @@
             <li>Personality</li>
             <li>In-hand aggressiveness</li>
           </ul>
+
           <div class="photo-grid">
             <div class="photo">photo 1</div>
             <div class="photo">photo 2</div>
@@ -231,31 +630,38 @@
       </div>
     </section>
 
-    <!-- projects -->
+    <!-- PROJECTS -->
     <section id="projects">
       <h2>projects</h2>
 
       <div class="box">
-        <h3>on-going collaborations</h3>
+        <h3>ongoing collaborations</h3>
 
         <div class="proj-sub" id="proj-belize">
           <h4>Long-term Mark Monitoring of Bats in Belize</h4>
-          <p>Large collaboration with scientists from >40 institutions and 10 countries. Research supported by AMNH. Project featured by NPR.</p>
+          <p>
+            Large collaboration with scientists from more than 40 institutions and 10 countries.
+            Research supported by AMNH. Project featured by NPR.
+          </p>
+
           <div class="photo-grid">
             <div class="photo">
-              <img src="images/lamanai_photo.jpg" alt="lamanai">
+              <img src="images/lamanai_photo.jpg" alt="Lamanai field site">
             </div>
             <div class="photo">
-              <img src="images/lamanai_photo2.jpeg" alt="lamanai">
+              <img src="images/lamanai_photo2.jpeg" alt="Bat research in Belize">
             </div>
             <div class="photo">
-              <img src="images/lamanai_photo3.jpeg" alt="lamanai">
+              <img src="images/lamanai_photo3.jpeg" alt="Field equipment in Belize">
             </div>
           </div>
+        </div>
 
         <div class="proj-sub" id="proj-panama-fringelipped">
           <h4>Social Structure and Behavioural Dynamics of Fringe-lipped Bats in Panama (2025)</h4>
-          <p>Smithsonian Tropical Research Institute. Research supported by STRI fellowship and AMNH.</p>
+          <p>
+            Smithsonian Tropical Research Institute. Research supported by a STRI fellowship and AMNH.
+          </p>
           <div class="photo-grid">
             <div class="photo">photo 1</div>
             <div class="photo">photo 2</div>
@@ -264,7 +670,10 @@
 
         <div class="proj-sub" id="proj-jamaica-flowerbat">
           <h4>Social Structure and Movement Dynamics of the Jamaican Flower Bat</h4>
-          <p>In collaboration with the University of the West Indies, Bat Conservation International, and York University.</p>
+          <p>
+            In collaboration with the University of the West Indies, Bat Conservation International,
+            and York University.
+          </p>
           <div class="photo-grid">
             <div class="photo">photo 1</div>
             <div class="photo">photo 2</div>
@@ -277,7 +686,10 @@
 
         <div class="proj-sub" id="proj-ontario-rfid">
           <h4>Long-term RFID Monitoring of Little Brown Bats in Ontario, Canada (2018–2024)</h4>
-          <p>Part of my PhD research. Established long term monitoring program around maternity roosts in and around Pinery Provincial Park. In collaboration with Ontario Parks.</p>
+          <p>
+            Part of my PhD research. Established a long-term monitoring program around maternity roosts
+            in and around Pinery Provincial Park, in collaboration with Ontario Parks.
+          </p>
           <div class="photo-grid">
             <div class="photo">photo 1</div>
             <div class="photo">photo 2</div>
@@ -286,7 +698,10 @@
 
         <div class="proj-sub" id="proj-eastern-canada-status">
           <h4>Assessing the Population Status of Bats in Eastern Canada (2022–2023)</h4>
-          <p>Capture surveys during summer and swarming. In collaboration with University of Waterloo, Environment Climate Change Canada.</p>
+          <p>
+            Capture surveys during summer and swarming, in collaboration with the University of Waterloo
+            and Environment and Climate Change Canada.
+          </p>
           <div class="photo-grid">
             <div class="photo">photo 1</div>
             <div class="photo">photo 2</div>
@@ -294,38 +709,62 @@
         </div>
       </div>
 
-      <!-- Map (lazy init) -->
-      <div id="mapbox"></div>
+      <div id="mapbox" aria-label="Map of research project locations"></div>
     </section>
 
-    <!-- publications -->
+    <!-- FUN STUFF -->
+    <section id="fun-stuff">
+      <p class="eyebrow">outside the lab and field station</p>
+      <h2>fun stuff</h2>
+
+      <div class="fun-intro">
+        <p>
+          Photos from fieldwork, travel, surfing, mountain biking, birding, and whatever else seems
+          worth saving. All images shown here are loaded from the <code>images/fun_stuff</code> folder.
+        </p>
+      </div>
+
+      <div id="fun-gallery" class="fun-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- PUBLICATIONS -->
     <section id="publications">
       <h2>publications</h2>
       <div class="pubs" id="pubs">loading publications…</div>
     </section>
 
-    <!-- cv -->
+    <!-- CV -->
     <section id="cv">
       <h2>cv</h2>
-      <p><a href="caleb_cv_current.pdf" target="_blank" rel="noopener">download cv (pdf)</a></p>
-      <div class="box"><h3>full cv</h3>
+      <p><a href="caleb_cv_current.pdf" target="_blank" rel="noopener">Download CV (PDF)</a></p>
+      <div class="box">
+        <h3>full cv</h3>
         <embed src="caleb_cv_current.pdf" type="application/pdf" class="cv-viewer">
       </div>
     </section>
 
-    <!-- contact -->
+    <!-- CONTACT -->
     <section id="contact">
       <h2>contact</h2>
       <div class="contact">
-        <div class="contact-row"><span class="muted">email:</span> <span>c9ryan (at) uwaterloo (dot) ca</span></div>
         <div class="contact-row">
-          <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">github.com/<span class="handle">calebcookryan</span></a>
+          <span class="muted">email:</span>
+          <span>c9ryan (at) uwaterloo (dot) ca</span>
         </div>
         <div class="contact-row">
-          <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">twitter.com/<span class="handle">CalebCRyan</span></a>
+          <a href="https://github.com/calebcookryan" target="_blank" rel="noopener">
+            github.com/<span class="handle">calebcookryan</span>
+          </a>
         </div>
         <div class="contact-row">
-          <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">instagram.com/<span class="handle">calebcookryan</span></a>
+          <a href="https://twitter.com/CalebCRyan" target="_blank" rel="noopener">
+            twitter.com/<span class="handle">CalebCRyan</span>
+          </a>
+        </div>
+        <div class="contact-row">
+          <a href="https://instagram.com/calebcookryan" target="_blank" rel="noopener">
+            instagram.com/<span class="handle">calebcookryan</span>
+          </a>
         </div>
       </div>
     </section>
@@ -335,145 +774,232 @@
     <p>&copy; <span id="y"></span> Caleb Cook Ryan</p>
   </footer>
 
-  <script>
-    // footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyZUvWP2Q+1o="
+    crossorigin=""
+  ></script>
 
-    // hash-based tabs (only one section visible)
-    const allSections = Array.from(document.querySelectorAll('main section'));
+  <script>
+    // Footer year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Hash-based navigation: show one section at a time
+    const allSections = Array.from(document.querySelectorAll("main section"));
+    const navLinks = Array.from(document.querySelectorAll("nav a"));
+
     function showSection(id) {
-      allSections.forEach(sec => sec.classList.toggle('active', sec.id === id));
+      allSections.forEach(section => {
+        section.classList.toggle("active", section.id === id);
+      });
+
+      navLinks.forEach(link => {
+        const isCurrent = link.getAttribute("href") === `#${id}`;
+        if (isCurrent) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: "auto" });
     }
 
-    // ---- Projects map (lazy init) ----
+    // Projects map, initialized only when the Projects tab is opened
     let mapInitialized = false;
-    function initProjectsMap(){
-      if (mapInitialized || typeof L === 'undefined') return;
 
-      // Project sites (approximate coordinates) + anchors
+    function initProjectsMap() {
+      if (mapInitialized || typeof L === "undefined") return;
+
       const sites = [
         { name: "Belize Long-term", coords: [17.25, -88.77], anchor: "proj-belize" },
-        { name: "Panama – Fringe-lipped bats (2025)", coords: [9.119, -79.704], anchor: "proj-panama-fringelipped" }, // Gamboa/STRI
+        { name: "Panama – Fringe-lipped bats (2025)", coords: [9.119, -79.704], anchor: "proj-panama-fringelipped" },
         { name: "Ontario – Pinery Provincial Park", coords: [43.27, -81.83], anchor: "proj-ontario-rfid" },
         { name: "Eastern Canada – Hibernating bats", coords: [46.5, -66.5], anchor: "proj-eastern-canada-status" },
         { name: "Jamaica – Flower bat (2025)", coords: [18.1096, -77.2975], anchor: "proj-jamaica-flowerbat" }
       ];
 
-      const map = L.map('mapbox', { scrollWheelZoom: false });
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap &copy; CARTO'
+      const map = L.map("mapbox", { scrollWheelZoom: false });
+
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        attribution: "&copy; OpenStreetMap &copy; CARTO"
       }).addTo(map);
 
-      const markers = sites.map(s => {
-        const link = `<a href="#projects" data-anchor="${s.anchor}" class="map-link">Open details ↓</a>`;
-        return L.marker(s.coords).bindPopup(`<strong>${s.name}</strong><br>${link}`);
+      const markers = sites.map(site => {
+        const link = `<a href="#projects" data-anchor="${site.anchor}" class="map-link">Open details ↓</a>`;
+        return L.marker(site.coords).bindPopup(`<strong>${site.name}</strong><br>${link}`);
       });
+
       const group = L.featureGroup(markers).addTo(map);
       map.fitBounds(group.getBounds().pad(0.2));
 
-      // Smooth-scroll from popup links to subsection
-      document.addEventListener('click', (e) => {
-        const a = e.target.closest('.map-link');
-        if (!a) return;
-        e.preventDefault();
-        const id = a.getAttribute('data-anchor');
-        if (location.hash !== '#projects') {
-          location.hash = '#projects';
-          setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
-        } else {
-          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+      document.addEventListener("click", event => {
+        const link = event.target.closest(".map-link");
+        if (!link) return;
+
+        event.preventDefault();
+        const id = link.getAttribute("data-anchor");
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
       });
 
       mapInitialized = true;
     }
 
     function navigate() {
-      const id = (location.hash || '#about').slice(1);
-      if (!document.getElementById(id)) return (location.hash = '#about');
+      const id = (location.hash || "#about").slice(1);
+      const target = document.getElementById(id);
+
+      if (!target || !target.matches("main section")) {
+        location.hash = "#about";
+        return;
+      }
+
       showSection(id);
-      if (id === 'projects') initProjectsMap();
-    }
-    window.addEventListener('hashchange', navigate);
-    document.addEventListener('DOMContentLoaded', navigate);
 
-    // publications: Altmetric by default, PlumX if pub.plumx === true
-    function normalizeMyName(html){
-      return html.replace(/caleb\s+cook\s+ryan/gi, '<strong>Caleb Cook Ryan</strong>');
+      if (id === "projects") {
+        initProjectsMap();
+        setTimeout(() => {
+          const mapElement = document.getElementById("mapbox");
+          if (mapElement && mapElement._leaflet_id) {
+            mapElement.dispatchEvent(new Event("resize"));
+          }
+        }, 100);
+      }
     }
 
-    fetch('publication.json')
-      .then(res => res.json())
+    window.addEventListener("hashchange", navigate);
+    document.addEventListener("DOMContentLoaded", navigate);
+
+    // FUN STUFF GALLERY
+    // Add image files to images/fun_stuff, then add each filename and caption below.
+    // Example file path: images/fun_stuff/surfing_panama.jpg
+    const funStuffImages = [
+      // { file: "surfing_panama.jpg", caption: "Surfing in Panama" },
+      // { file: "mountain_biking.jpg", caption: "Mountain biking" },
+      // { file: "field_camp.jpg", caption: "A good field camp" }
+    ];
+
+    function loadFunGallery() {
+      const gallery = document.getElementById("fun-gallery");
+      if (!gallery) return;
+
+      if (funStuffImages.length === 0) {
+        gallery.className = "fun-empty";
+        gallery.innerHTML = `
+          <strong>Your Fun Stuff page is ready.</strong>
+          <p style="margin-top:8px; margin-bottom:0;">
+            Create the folder <code>images/fun_stuff</code>, place your images inside it,
+            and add their filenames to the <code>funStuffImages</code> list near the bottom
+            of this file.
+          </p>
+        `;
+        return;
+      }
+
+      gallery.innerHTML = funStuffImages.map(item => `
+        <figure class="fun-card">
+          <img
+            src="images/fun_stuff/${item.file}"
+            alt="${item.caption || "Fun stuff photo"}"
+            loading="lazy"
+          >
+          ${item.caption ? `<figcaption>${item.caption}</figcaption>` : ""}
+        </figure>
+      `).join("");
+    }
+
+    loadFunGallery();
+
+    // Publications: Altmetric by default, PlumX if pub.plumx === true
+    function normalizeMyName(html) {
+      return html.replace(/caleb\s+cook\s+ryan/gi, "<strong>Caleb Cook Ryan</strong>");
+    }
+
+    fetch("publication.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load publication.json");
+        return response.json();
+      })
       .then(data => {
-        const pubs = document.getElementById('pubs');
-        pubs.innerHTML = '';
+        const pubs = document.getElementById("pubs");
+        pubs.innerHTML = "";
 
         for (const yearBlock of data.years) {
-          const yearDiv = document.createElement('div');
-          yearDiv.className = 'year';
+          const yearDiv = document.createElement("div");
+          yearDiv.className = "year";
           yearDiv.textContent = yearBlock.year;
           pubs.appendChild(yearDiv);
 
-          const ol = document.createElement('ol');
-          ol.className = 'pub-list';
+          const list = document.createElement("ol");
+          list.className = "pub-list";
 
           for (const pub of yearBlock.pubs) {
-            const li = document.createElement('li');
-            li.className = 'pub-item';
+            const item = document.createElement("li");
+            item.className = "pub-item";
 
-            const cite = document.createElement('span');
-            cite.className = 'cite';
-            cite.innerHTML = normalizeMyName(pub.citation || '');
+            const citation = document.createElement("span");
+            citation.className = "cite";
+            citation.innerHTML = normalizeMyName(pub.citation || "");
 
-            const linksDiv = document.createElement('div');
-            linksDiv.className = 'links';
+            const links = document.createElement("div");
+            links.className = "links";
 
             if (pub.pdf) {
-              const a = document.createElement('a');
-              a.href = pub.pdf;
-              a.setAttribute('aria-label', 'PDF');
-              a.innerHTML = '<img class="pdf-icon" src="favicon.png" alt="PDF">';
-              linksDiv.appendChild(a);
+              const pdfLink = document.createElement("a");
+              pdfLink.href = pub.pdf;
+              pdfLink.setAttribute("aria-label", "Open PDF");
+              pdfLink.innerHTML = '<img class="pdf-icon" src="favicon.png" alt="PDF">';
+              links.appendChild(pdfLink);
             }
 
-            li.appendChild(cite);
-            li.appendChild(linksDiv);
+            item.appendChild(citation);
+            item.appendChild(links);
 
-            // Metrics: if pub.plumx is true, show PlumX; else Altmetric
             if (pub.plumx === true && (pub.doi || pub.pmid)) {
               const plumURL = pub.doi
                 ? `https://plu.mx/plum/a/?doi=${encodeURIComponent(pub.doi)}`
                 : `https://plu.mx/plum/a/?pmid=${encodeURIComponent(pub.pmid)}`;
-              const plumA = document.createElement('a');
-              plumA.className = 'plumx-plum-print-popup';
-              plumA.setAttribute('data-popup','right');
-              plumA.setAttribute('data-hide-when-empty','false');
-              plumA.href = plumURL;
-              plumA.textContent = 'PlumX';
-              li.appendChild(plumA);
+
+              const plumLink = document.createElement("a");
+              plumLink.className = "plumx-plum-print-popup";
+              plumLink.setAttribute("data-popup", "right");
+              plumLink.setAttribute("data-hide-when-empty", "false");
+              plumLink.href = plumURL;
+              plumLink.textContent = "PlumX";
+              item.appendChild(plumLink);
             } else if (pub.doi || pub.pmid) {
-              const altDiv = document.createElement('div');
-              const idAttr = pub.pmid ? `data-pmid="${pub.pmid}"` : `data-doi="${pub.doi}"`;
-              altDiv.innerHTML = `<span class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="false" data-link-target="_blank" ${idAttr}></span>`;
-              li.appendChild(altDiv);
+              const altmetric = document.createElement("div");
+              const idAttribute = pub.pmid
+                ? `data-pmid="${pub.pmid}"`
+                : `data-doi="${pub.doi}"`;
+
+              altmetric.innerHTML = `
+                <span
+                  class="altmetric-embed"
+                  data-badge-type="donut"
+                  data-hide-no-mentions="false"
+                  data-link-target="_blank"
+                  ${idAttribute}
+                ></span>
+              `;
+              item.appendChild(altmetric);
             }
 
-            ol.appendChild(li);
+            list.appendChild(item);
           }
 
-          pubs.appendChild(ol);
+          pubs.appendChild(list);
         }
+      })
+      .catch(error => {
+        const pubs = document.getElementById("pubs");
+        pubs.textContent = "Publications could not be loaded. Check that publication.json is in the website’s main folder.";
+        console.error(error);
       });
   </script>
 
-  <!-- Leaflet JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-
-  <!-- Altmetric + PlumX scripts (render badges/popups) -->
+  <!-- Altmetric + PlumX scripts -->
   <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
   <script async src="https://cdn.plu.mx/widget-popup.js"></script>
 </body>
